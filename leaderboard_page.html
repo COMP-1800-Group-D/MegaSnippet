@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MEGASNIPPET-Leaderboard</title>
+    <link rel="stylesheet" href="./CSS/general_page_styling.css">
+    <link rel="stylesheet" href="./CSS/general_page_header_styling.css">
+    <style>
+        main h1 {
+            text-align: center;
+            font-size: 6vh;
+            margin-top: 4vh;
+            margin-bottom: 2vh;
+        }
+
+        #buttonColumn {
+            float: left;
+            width: 25%;
+            text-align: center;
+            padding: 1vh 0;
+        }
+
+        #leaderboardColumn {
+            float: left;
+            width: 75%;
+            padding: 1vh 0;
+            font-size: 3vh;
+        }
+
+        #buttonColumn button {
+            font-size: 3vh;
+            padding: 1.3vh 1vw;
+            border-radius: 4px;
+            margin-bottom: 0.5vh;
+            background-color: whitesmoke;
+        }
+
+        #buttonColumn button:hover {
+            cursor: pointer;
+        }
+
+        #buttonColumn ul {
+            margin: 0;
+            padding: 0;
+        }
+
+        #buttonColumn ul li {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        #buttonColumn li button {
+            width: 90%;
+        }
+
+        #buttonColumn > button {
+            width: 44%;
+        }
+
+        #buttonColumn #globalButton {
+            background-color: lavender;
+        }
+
+        #buttonColumn #overallButton {
+            background-color: lavender;
+        }
+
+        main table {
+            width: 100%;
+            border-collapse: collapse;
+            text-align: center;
+        }
+
+        main td, main th {
+            border: 2px solid black;
+            padding: 1vh 1vh;
+        }
+
+        .rank {
+            width: 20%;
+        }
+
+        .profile {
+            width: 50%;
+            text-align: left; 
+        }
+        
+        main th{
+            text-align: center !important; 
+        }
+
+        .profile img, .profile p {
+            display: inline;
+            vertical-align: middle;
+        }
+
+        .score {
+            width: 30%;
+        }
+
+    </style>
+</head>
+<body>
+    <header class="cf">
+        <h3>Mega<span>Snippet</span> - Leaderboard</h3>
+        <ul>
+            <li><a href="./index.html">Home</a></li>
+            <li><a class="active" href="./leaderboard_page.html">Leaderboard</a></li>
+            <li><a href="./game_repository_page.html">Games</a></li>
+            <li><a href="./achievements_page.html">Achievements</a></li>
+            <li><a href="./to-do_page.html">To-Do</a></li>
+            <li><a href="./chat_page.html">Chat</a></li>
+            <li><a href="./friends_page.html">Friends</a></li>
+            <a class="disabled" href="#"><img src="./Images/profile_image_default.png" alt="Profile Image Default" /></a>
+        </ul>
+    </header>
+    <main>
+        <h1>Tic Tac Toe Game</h1>
+        <div id="buttonColumn">
+            <button id="globalButton" onclick="setGlobalOrLocalLeaderboard(0)">Global</button>
+            <button id="classButton" onclick="setGlobalOrLocalLeaderboard(1)">Class</button>
+            <ul>
+                <li><button id="overallButton" onclick="getLeaderboard(0)">Overall Score</button></li>
+                <li><button id="ticTacToeButton" onclick="getLeaderboard(1)">Tic Tac Toe Score</button></li>
+                <li><button id="hangmanButton" onclick="getLeaderboard(2)">Hangman Score</button></li>
+                <li><button id="sudokuButton" onclick="getLeaderboard(3)">Sudoku Score</button></li>
+                <li><button id="connect4Button" onclick="getLeaderboard(4)">Connect 4 Score</button></li>
+                <li><button id="rpsButton" onclick="getLeaderboard(5)">Rock-Paper-Scissors Score</button></li>
+                <li><button id="pokerButton" onclick="getLeaderboard(6)">Poker Score</button></li>
+                <li><button id="blackjackButton" onclick="getLeaderboard(7)">Blackjack Score</button></li>
+                <li><button id="wordSearchButton" onclick="getLeaderboard(8)">Word Search Score</button></li>
+                <li><button id="snakeButton" onclick="getLeaderboard(9)">Snake Score</button></li>
+                <li><button id="pacmanButton" onclick="getLeaderboard(10)">Pacman Score</button></li>
+                <li><button id="froggerButton" onclick="getLeaderboard(11)">Frogger Score</button></li>
+                <li><button id="cookieClickerButton" onclick="getLeaderboard(12)">Cookie Clicker Score</button></li>
+            </ul>
+        </div>
+        <div id="leaderboardColumn">
+            <table>
+                <tr>
+                    <th class="rank">Rank</th>
+                    <th class="profile">Profile</th>
+                    <th class="score">Score</th>
+                </tr>
+                <tr>
+                    <td class="rank">1</td>
+                    <td class="profile">
+                        <img class="profilePicture" src="./Images/profile_image_default.png" alt="Profile Image Default" />
+                        <p class="profileName">User00000001</p>
+                    </td>
+                    <td class="score">0</td>
+                </tr>
+                <tr>
+                    <td class="rank">2</td>
+                    <td class="profile">
+                        <img class="profilePicture" src="./Images/profile_image_default.png" alt="Profile Image Default" />
+                        <p class="profileName">User00000001</p>
+                    </td>
+                    <td class="score">0</td>
+                </tr>
+                <tr>
+                    <td class="rank">3</td>
+                    <td class="profile">
+                        <img class="profilePicture" src="./Images/profile_image_default.png" alt="Profile Image Default" />
+                        <p class="profileName">User00000001</p>
+                    </td>
+                    <td class="score">0</td>
+                </tr>
+                <tr>
+                    <td class="rank">4</td>
+                    <td class="profile">
+                        <img class="profilePicture" src="./Images/profile_image_default.png" alt="Profile Image Default" />
+                        <p class="profileName">User00000001</p>
+                    </td>
+                    <td class="score">0</td>
+                </tr>
+                <tr>
+                    <td class="rank">5</td>
+                    <td class="profile">
+                        <img class="profilePicture" src="./Images/profile_image_default.png" alt="Profile Image Default" />
+                        <p class="profileName">User00000001</p>
+                    </td>
+                    <td class="score">0</td>
+                </tr>
+                <tr>
+                    <td class="rank">6</td>
+                    <td class="profile">
+                        <img class="profilePicture" src="./Images/profile_image_default.png" alt="Profile Image Default" />
+                        <p class="profileName">User00000001</p>
+                    </td>
+                    <td class="score">0</td>
+                </tr>
+                <tr>
+                    <td class="rank">7</td>
+                    <td class="profile">
+                        <img class="profilePicture" src="./Images/profile_image_default.png" alt="Profile Image Default" />
+                        <p class="profileName">User00000001</p>
+                    </td>
+                    <td class="score">0</td>
+                </tr>
+                <tr>
+                    <td class="rank">8</td>
+                    <td class="profile">
+                        <img class="profilePicture" src="./Images/profile_image_default.png" alt="Profile Image Default" />
+                        <p class="profileName">User00000001</p>
+                    </td>
+                    <td class="score">0</td>
+                </tr>
+                <tr>
+                    <td class="rank">9</td>
+                    <td class="profile">
+                        <img class="profilePicture" src="./Images/profile_image_default.png" alt="Profile Image Default" />
+                        <p class="profileName">User00000001</p>
+                    </td>
+                    <td class="score">0</td>
+                </tr>
+                <tr>
+                    <td class="rank">10</td>
+                    <td class="profile">
+                        <img class="profilePicture" src="./Images/profile_image_default.png" alt="Profile Image Default" />
+                        <p class="profileName">User00000001</p>
+                    </td>
+                    <td class="score">0</td>
+                </tr>
+            </table>
+        </div>
+    </main>
+    <script>
+        let isGlobalLeaderboard = true;
+        let currentLeaderboard = 0
+        possibleLeaderboards = ["overallButton", "ticTacToeButton", "hangmanButton", "sudokuButton", "connect4Button", "rpsButton", "pokerButton", 
+        "blackjackButton", "wordSearchButton", "snakeButton", "pacmanButton", "froggerButton", "cookieClickerButton"]
+        
+        function setGlobalOrLocalLeaderboard(buttonID){
+            let buttonReference = ["globalButton", "classButton"]
+            if (isGlobalLeaderboard && buttonID == 1){
+                document.getElementById(buttonReference[0]).style.backgroundColor = "whiteSmoke";
+                document.getElementById(buttonReference[1]).style.backgroundColor = "lavender";
+                isGlobalLeaderboard = false;
+            }
+            else{
+                document.getElementById(buttonReference[0]).style.backgroundColor = "lavender";
+                document.getElementById(buttonReference[1]).style.backgroundColor = "whiteSmoke";
+                isGlobalLeaderboard = true;
+            }
+        }
+
+        function getLeaderboard(leaderboardReference){
+            if (isGlobalLeaderboard){
+                if (currentLeaderboard != leaderboardReference){
+                    document.getElementById(possibleLeaderboards[leaderboardReference]).style.backgroundColor = "lavender";
+                    document.getElementById(possibleLeaderboards[currentLeaderboard]).style.backgroundColor = "whiteSmoke";
+                    currentLeaderboard = leaderboardReference;
+                }
+            }
+            else{
+                if (currentLeaderboard != leaderboardReference){
+                    document.getElementById(possibleLeaderboards[leaderboardReference]).style.backgroundColor = "lavender";
+                    document.getElementById(possibleLeaderboards[currentLeaderboard]).style.backgroundColor = "whiteSmoke";
+                    currentLeaderboard = leaderboardReference;
+                }
+            }
+        }
+    </script>
+</body>
+</html>

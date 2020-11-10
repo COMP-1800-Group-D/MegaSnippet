@@ -1,0 +1,59 @@
+#gameSetupMain div{
+    margin-top: 1vh;
+}
+
+#gameSetupMain #gameSettingsColumn {
+    float: left;
+    width: 40%;
+    text-align: center;
+    padding-top: 1vh;;
+}
+
+#gameSetupMain #gameSettingsColumn button {
+    font-size: 4vh;
+    padding: 2vh 2vw;
+    margin: 1vh 0;
+    border-radius: 4px;
+}
+
+#gameSetupMain #gameSettingsColumn button:hover {
+    cursor: pointer;
+    box-shadow: 1vh 1vh #666;
+}
+
+#gameSetupMain #gameSettingsColumn ul {
+    margin: 0;
+    padding: 0;
+}
+
+#gameSetupMain #gameSettingsColumn ul li {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+#gameSetupMain #gameSettingsColumn li button {
+    width: 80%;
+}
+
+#gameSetupMain #gameSettingsColumn .twoButtonSideBySide {
+    width: 40%;
+}
+
+#gameSetupMain #gameSettingsColumn #playButton {
+    background-color: dodgerblue;
+    color: white;
+    width: 60%;
+}
+
+#gameSetupMain #gameExplanationColumn {
+    float: left;
+    width: 60%;
+    font-size: 3vh;
+    border: 2px solid black;
+    padding: 2vh;
+}
+
+#gameSetupMain #gameExplanationColumn h2 {
+    margin-top: 0;
+}

@@ -1,0 +1,50 @@
+header {
+    border-bottom: 2px solid grey;
+    padding: 1vh 1.5vw;
+    font-size: 3vh;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+header h3 {
+    color: black;
+    float: left;
+    margin: 1vh 1vw;
+}
+
+header span {
+    color: blue;
+}
+
+header ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    float: right;
+}
+
+header ul li {
+    float: left;
+}
+
+header ul li a {
+    color: black;
+    display: block;
+    text-align: center;
+    padding: 1.5vh 1vw;
+    text-decoration: none;
+    font-size: 2.5vh;
+}
+
+header ul li a:hover:not(.active) {
+    background-color: lightgray;
+}
+
+header ul li a.active {
+    background-color: lavender;
+}
+
+header ul img {
+    height: 5vh;
+    margin-left: 0.5vw;
+}

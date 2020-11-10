@@ -1,0 +1,21 @@
+* {
+    box-sizing: border-box;
+}
+
+.disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.cf:after {
+    content: '';
+    display: block;
+    clear: both;
+}
+
+main h1 {
+    text-align: center;
+    font-size: 7vh;
+    margin-top: 4vh;
+    margin-bottom: 2vh;
+}

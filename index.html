@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en-CA">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MEGASNIPPET-Home</title>
+    <link rel="stylesheet" href="./CSS/general_page_styling.css">
+    <style>
+        header {
+            border-bottom: 2px solid grey;
+            padding: 2vh 3.5vw;
+        }
+        
+        header h3 {
+            font-size: 6.5vh;
+            font-family: 'Times New Roman', Times, serif;
+            color: black;
+            float: left;
+            margin: 1vh 1vw;
+        }
+
+        header span {
+            color: blue;
+        }
+
+        header img {
+            float: right;
+            height: 8vh;
+        }
+
+        main {
+            display: grid;
+            grid-template-columns: auto auto auto;
+            height: 80vh;
+            justify-content: space-evenly;
+            align-content: space-evenly;
+        }
+
+        main > a img {
+            height: 33vh;
+        }
+    </style>
+</head>
+<body>
+    <header class="cf">
+        <h3>Mega<span>Snippet</span></h3>
+        <a href="#"><img class="disabled" src="./Images/profile_image_default.png" alt="Profile Image Default" /></a>
+    </header>
+    <main>
+        <a href="./leaderboard_page.html"><img src="./Images/leaderboard_widget.png" alt="Leaderboard Widget" /></a>
+        <a href="./game_repository_page.html"><img src="./Images/games_widget.png" alt="Games Widget" /></a>
+        <a href="./achievements_page.html"><img src="./Images/achievements_widget.png" alt="Achievements Widget" /></a>
+        <a href="./to-do_page.html"><img src="./Images/todo_widget.png" alt="To-Do Widget" /></a>
+        <a href="./chat_page.html"><img src="./Images/chats_widget.png" alt="Chat Widget" /></a>
+        <a href="./friends_page.html"><img src="./Images/freinds_widget.png" alt="Friends Widget" /></a>
+    </main>
+</body>
+</html>
