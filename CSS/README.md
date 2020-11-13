@@ -6,4 +6,4 @@ All files started with "general" are standerdized styling files to keep consiste
 ## File Names / Descriptions:
 * general_game_settings_page_styling.css = General styling for all game setup screens, should be included on all game pages.
 * general_page_header_styling.css = General styling for the header (navigation bar) of all webpages except the homepage (index.html). Should be included in all pages.
-* general_page_styling.css = General styling for all pages. Should be incldued in all pages. Includes fix for container collapsing, a function to disable buttons, and general page stylings.
+* general_page_styling.css = General styling for all pages. Should be included in all pages. Includes fix for container collapsing, a function to disable buttons, and general page stylings.
