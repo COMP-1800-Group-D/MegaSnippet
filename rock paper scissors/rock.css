@@ -1,0 +1,76 @@
+section {
+    width: 1200px;
+    height: 925px;
+    background-color: #ff99ff;
+    margin: auto;
+}
+img {
+    width: 500px;
+    height: 300px;
+    padding: 25px;
+}
+#player {
+    float: left;
+    width: 550px;
+    height: 350px;
+    display: inline;
+    background-color: #b366ff;
+    margin: 25px;
+}
+#bot {
+    float: left;
+    width: 550px;
+    height: 350px;
+    display: inline;
+    background-color: #b366ff;
+    margin: 25px;
+}
+#option {
+    text-align: center;
+    color: whitesmoke;
+    font-size: 40px;
+    float: left;
+    width: 1100;
+    height: 400px;
+    margin: 55px;
+    background-color: #ff66a3;
+}
+
+#reset {
+    background-color: #b30059;
+    color: whitesmoke;
+    font-size: 20px;
+    width: 100px;
+    height: 50px;
+    margin-left: 550px;
+}
+.move{
+    font-size: 40px;
+    float: left;
+    width: 250px;
+    height: 100px;
+    margin-left: 55px;
+    margin-right: 55px;
+    background-color: #b30059;
+    color: whitesmoke;
+}
+.move1{
+    font-size: 40px;
+    float: left;
+    width: 250px;
+    height: 100px;
+    margin-left: 230px;
+    margin-top: 15px;
+    background-color: #b30059;
+    color: whitesmoke;
+}
+.move2{
+    font-size: 40px;
+    float: left;
+    width: 250px;
+    height: 100px;
+    margin-left: 110px;
+    margin-top: 15px;
+    background-color: #b30059;
+    color: whitesmoke;
+}

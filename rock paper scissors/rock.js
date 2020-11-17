@@ -1,0 +1,170 @@
+// Buttons
+let reset = document.getElementsByTagName('button')[0];
+let rock = document.getElementsByTagName('button')[1];
+let paper = document.getElementsByTagName('button')[2];
+let scissors = document.getElementsByTagName('button')[3];
+let lizard = document.getElementsByTagName('button')[4];
+let spock = document.getElementsByTagName('button')[5];
+
+// Images
+let playerImg = document.getElementsByTagName('img')[0];
+playerImg.src = 'question.png';
+let botImg = document.getElementsByTagName('img')[1];
+botImg.src = 'question.png';
+
+function botMove(move){
+    botImg.setAttribute('class', 'visible');
+    let int = Math.floor(Math.random() * 5);
+
+    if(int == 0){
+        botImg.src = 'rock.png';
+        return 'rock';
+    }
+    else if(int == 1){
+        botImg.src = 'paper.png';
+        return 'paper';
+    }
+    else if(int == 2){
+        botImg.src = 'scissors.png';
+        return 'scissors';
+    }
+    else if(int == 3){
+        botImg.src = 'lizard.png';
+        return 'lizard';
+    }
+    else{
+        botImg.src = 'spock.png';
+        return 'spock';
+    }
+};
+
+function result(player, bot){
+    if(player == 'rock'){
+        if(bot == 'rock'){
+            document.getElementById('text').textContent = 'TIE!';
+        }
+        else if(bot == 'paper'){
+            document.getElementById('text').textContent = 'YOU LOST!';
+        }
+        else if(bot == 'scissors'){
+            document.getElementById('text').textContent = 'YOU WON!';
+        }
+        else if(bot == 'lizard'){
+            document.getElementById('text').textContent = 'YOU WON!';
+        }
+        else{
+            document.getElementById('text').textContent = 'YOU LOST!';
+        }
+    }
+    else if(player == 'paper'){
+        if(bot == 'rock'){
+            document.getElementById('text').textContent = 'YOU WON!';
+        }
+        else if(bot == 'paper'){
+            document.getElementById('text').textContent = 'TIE!';
+        }
+        else if(bot == 'scissors'){
+            document.getElementById('text').textContent = 'YOU LOST!';
+        }
+        else if(bot == 'lizard'){
+            document.getElementById('text').textContent = 'YOU LOST!';
+        }
+        else{
+            document.getElementById('text').textContent = 'YOU WON!';
+        }
+    }
+    else if(player == 'scissors'){
+        if(bot == 'rock'){
+            document.getElementById('text').textContent = 'YOU LOST!';
+        }
+        else if(bot == 'paper'){
+            document.getElementById('text').textContent = 'YOU WON!';
+        }
+        else if(bot == 'scissors'){
+            document.getElementById('text').textContent = 'TIE!';
+        }
+        else if(bot == 'lizard'){
+            document.getElementById('text').textContent = 'YOU WON!';
+        }
+        else{
+            document.getElementById('text').textContent = 'YOU LOST!';
+        }
+    }
+    else if(player == 'lizard'){
+        if(bot == 'rock'){
+            document.getElementById('text').textContent = 'YOU LOST!';
+        }
+        else if(bot == 'paper'){
+            document.getElementById('text').textContent = 'YOU WON!';
+        }
+        else if(bot == 'scissors'){
+            document.getElementById('text').textContent = 'YOU LOST!';
+        }
+        else if(bot == 'lizard'){
+            document.getElementById('text').textContent = 'TIE!';
+        }
+        else{
+            document.getElementById('text').textContent = 'YOU WON!';
+        }
+    }
+    else if(player == 'spock'){
+        if(bot == 'rock'){
+            document.getElementById('text').textContent = 'YOU WON!';
+        }
+        else if(bot == 'paper'){
+            document.getElementById('text').textContent = 'YOU LOST!';
+        }
+        else if(bot == 'scissors'){
+            document.getElementById('text').textContent = 'YOU WON!';
+        }
+        else if(bot == 'lizard'){
+            document.getElementById('text').textContent = 'YOU LOST!';
+        }
+        else{
+            document.getElementById('text').textContent = 'TIE!';
+        }
+    }
+};
+
+reset.addEventListener('click', function(event){
+    playerImg.setAttribute('class', 'hidden');
+    botImg.setAttribute('class', 'hidden');
+    playerImg.src = 'question.png';
+    botImg.src = 'question.png';
+    document.getElementById('text').textContent = 'Pick a move!';
+});
+
+rock.addEventListener('click', function(event){
+    playerImg.setAttribute('class', 'visible');
+    playerImg.src = 'rock.png';
+    bot = botMove('rock');
+    result('rock', bot);
+});
+
+paper.addEventListener('click', function(event){
+    playerImg.setAttribute('class', 'visible');
+    playerImg.src = 'paper.png';
+    bot = botMove('paper');
+    result('paper', bot);
+});
+
+scissors.addEventListener('click', function(event){
+    playerImg.setAttribute('class', 'visible');
+    playerImg.src = 'scissors.png';
+    bot = botMove('scissors');
+    result('scissors', bot);
+});
+
+lizard.addEventListener('click', function(event){
+    playerImg.setAttribute('class', 'visible');
+    playerImg.src = 'lizard.png';
+    bot = botMove('lizard');
+    result('lizard', bot);
+});
+
+spock.addEventListener('click', function(event){
+    playerImg.setAttribute('class', 'visible');
+    playerImg.src = 'spock.png';
+    bot = botMove('spock');
+    result('spock', bot);
+});
