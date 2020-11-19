@@ -1,12 +1,12 @@
 #gameSetupMain div{
     margin-top: 1vh;
+    float: left;
 }
 
 #gameSetupMain #gameSettingsColumn {
-    float: left;
     width: 40%;
     text-align: center;
-    padding-top: 1vh;;
+    padding-top: 1vh;
 }
 
 #gameSetupMain #gameSettingsColumn button {
@@ -32,11 +32,15 @@
     padding: 0;
 }
 
-#gameSetupMain #gameSettingsColumn li button {
+#gameSetupMain #gameSettingsColumn .oneButtonPerLine button {
     width: 80%;
 }
 
-#gameSetupMain #gameSettingsColumn .twoButtonSideBySide {
+#gameSetupMain #gameSettingsColumn .twoButtonsPerLine li {
+    display: inline;
+}
+
+#gameSetupMain #gameSettingsColumn .twoButtonsPerLine button {
     width: 40%;
 }
 
@@ -47,7 +51,6 @@
 }
 
 #gameSetupMain #gameExplanationColumn {
-    float: left;
     width: 60%;
     font-size: 3vh;
     border: 2px solid black;

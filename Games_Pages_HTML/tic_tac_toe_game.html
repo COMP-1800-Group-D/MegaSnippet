@@ -81,9 +81,11 @@
     <main id="gameSetupMain">
         <h1>Tic Tac Toe Game Setup</h1>
         <div id="gameSettingsColumn">
-            <button class="twoButtonSideBySide" id="xButton" onclick="setSide(0)">Play As X</button>
-            <button class="twoButtonSideBySide" id="oButton" onclick="setSide(1)">Play As O</button>
-            <ul>
+            <ul class="twoButtonsPerLine">
+                <li><button id="xButton" onclick="setSide(0)">Play As X</button></li>
+                <li><button id="oButton" onclick="setSide(1)">Play As O</button></li>
+            </ul>
+            <ul class="oneButtonPerLine">
                 <li><button id="easyButton" onclick="setupGame(0)">Easy</button></li>
                 <li><button id="mediumButton" onclick="setupGame(1)">Medium</button></li>
                 <li><button id="hardButton" onclick="setupGame(2)">Hard</button></li>
