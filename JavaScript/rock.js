@@ -7,10 +7,10 @@ let lizard = document.getElementsByTagName('button')[4];
 let spock = document.getElementsByTagName('button')[5];
 
 // Images
-let playerImg = document.getElementsByTagName('img')[0];
-playerImg.src = '../Images/question.png';
-let botImg = document.getElementsByTagName('img')[1];
-botImg.src = '../Images/question.png';
+let playerImg = document.getElementsByClassName('img')[0];
+playerImg.src = 'question.png';
+let botImg = document.getElementsByClassName('img')[1];
+botImg.src = 'question.png';
 
 function botMove(move){
     botImg.setAttribute('class', 'visible');
