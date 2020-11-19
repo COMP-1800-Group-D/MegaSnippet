@@ -9,9 +9,9 @@ let gameIsLive = true
 
 // Images
 let playerImg = document.getElementById('playerImg');
-playerImg.src = 'question.png';
+playerImg.src = '../Images/question.png';
 let botImg = document.getElementById('botImg');
-botImg.src = 'question.png';
+botImg.src = '../Images/question.png';
 
 function botMove(move){
     botImg.setAttribute('class', 'visible');
