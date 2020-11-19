@@ -4,7 +4,7 @@ section {
     background-color: #ff99ff;
     margin: auto;
 }
-img {
+.img {
     width: 500px;
     height: 300px;
     padding: 25px;

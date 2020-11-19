@@ -7,9 +7,9 @@ let lizard = document.getElementsByTagName('button')[4];
 let spock = document.getElementsByTagName('button')[5];
 
 // Images
-let playerImg = document.getElementsByTagName('img')[0];
+let playerImg = document.getElementsByClassName('img')[0];
 playerImg.src = 'question.png';
-let botImg = document.getElementsByTagName('img')[1];
+let botImg = document.getElementsByClassName('img')[1];
 botImg.src = 'question.png';
 
 function botMove(move){
