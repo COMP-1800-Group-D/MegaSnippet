@@ -8,32 +8,32 @@ let spock = document.getElementsByTagName('button')[5];
 
 // Images
 let playerImg = document.getElementsByTagName('img')[0];
-playerImg.src = 'question.png';
+playerImg.src = '../Images/question.png';
 let botImg = document.getElementsByTagName('img')[1];
-botImg.src = 'question.png';
+botImg.src = '../Images/question.png';
 
 function botMove(move){
     botImg.setAttribute('class', 'visible');
     let int = Math.floor(Math.random() * 5);
 
     if(int == 0){
-        botImg.src = 'rock.png';
+        botImg.src = '../Images/rock.png';
         return 'rock';
     }
     else if(int == 1){
-        botImg.src = 'paper.png';
+        botImg.src = '../Images/paper.png';
         return 'paper';
     }
     else if(int == 2){
-        botImg.src = 'scissors.png';
+        botImg.src = '../Images/scissors.png';
         return 'scissors';
     }
     else if(int == 3){
-        botImg.src = 'lizard.png';
+        botImg.src = '../Images/lizard.png';
         return 'lizard';
     }
     else{
-        botImg.src = 'spock.png';
+        botImg.src = '../Images/spock.png';
         return 'spock';
     }
 };
@@ -129,42 +129,42 @@ function result(player, bot){
 reset.addEventListener('click', function(event){
     playerImg.setAttribute('class', 'hidden');
     botImg.setAttribute('class', 'hidden');
-    playerImg.src = 'question.png';
-    botImg.src = 'question.png';
+    playerImg.src = '../Images/question.png';
+    botImg.src = '../Images/question.png';
     document.getElementById('text').textContent = 'Pick a move!';
 });
 
 rock.addEventListener('click', function(event){
     playerImg.setAttribute('class', 'visible');
-    playerImg.src = 'rock.png';
+    playerImg.src = '../Images/rock.png';
     bot = botMove('rock');
     result('rock', bot);
 });
 
 paper.addEventListener('click', function(event){
     playerImg.setAttribute('class', 'visible');
-    playerImg.src = 'paper.png';
+    playerImg.src = '../Images/paper.png';
     bot = botMove('paper');
     result('paper', bot);
 });
 
 scissors.addEventListener('click', function(event){
     playerImg.setAttribute('class', 'visible');
-    playerImg.src = 'scissors.png';
+    playerImg.src = '../Images/scissors.png';
     bot = botMove('scissors');
     result('scissors', bot);
 });
 
 lizard.addEventListener('click', function(event){
     playerImg.setAttribute('class', 'visible');
-    playerImg.src = 'lizard.png';
+    playerImg.src = '../Images/lizard.png';
     bot = botMove('lizard');
     result('lizard', bot);
 });
 
 spock.addEventListener('click', function(event){
     playerImg.setAttribute('class', 'visible');
-    playerImg.src = 'spock.png';
+    playerImg.src = '../Images/spock.png';
     bot = botMove('spock');
     result('spock', bot);
 });
