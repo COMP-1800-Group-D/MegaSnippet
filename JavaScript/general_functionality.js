@@ -10,7 +10,7 @@ function selectAButtonFromListDeselectAllOtherButtonsByID(buttonRefIndex, listOf
 }
 
 function selectAButtonFromListOfButtonsDeselectAllOthers(buttonElement){
-    let listOfButtons = buttonElement.parentNode.parentNode.querySelectorAll("button")
+    let listOfButtons = buttonElement.parentNode.parentNode.querySelectorAll("button");
     for (let buttonIndex = 0; buttonIndex < listOfButtons.length; buttonIndex++){
         if (listOfButtons[buttonIndex] == buttonElement){
             buttonElement.style["box-shadow"] = "1vh 1vh #666";
