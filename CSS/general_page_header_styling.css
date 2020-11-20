@@ -1,4 +1,5 @@
-.cf {
+header {
+    box-sizing: border-box;
     border-bottom: 2px solid grey;
     padding: 9px 1.5vw;
     font-size: 27px;
