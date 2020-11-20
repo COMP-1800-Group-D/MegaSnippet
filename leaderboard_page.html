@@ -25,6 +25,11 @@
             padding: 1vh 0;
         }
 
+        #buttonColumn h2 {
+            margin-top: 1vh;
+            margin-bottom: 0.5vh;
+        }
+
         #leaderboardColumn {
             float: left;
             width: 75%;
@@ -36,7 +41,7 @@
             font-size: 3vh;
             padding: 1.3vh 1vw;
             border-radius: 4px;
-            margin-bottom: 0.5vh;
+            margin-bottom: 1vh;
             background-color: whitesmoke;
         }
 
@@ -100,6 +105,11 @@
             vertical-align: middle;
         }
 
+        .profile .profilePicture {
+            height: 4.5vh;
+            width: 4.5vh;
+        }
+
         .score {
             width: 30%;
         }
@@ -107,6 +117,7 @@
     </style>
 </head>
 <body>
+    <!-- Page Header - Only a Navigation Bar -->
     <header class="cf">
         <h3>Mega<span>Snippet</span> - Leaderboard</h3>
         <ul>
@@ -120,11 +131,15 @@
             <a class="disabled" href="#"><img class="profile-picture" src="./Images/profile_image_default.png" alt="Profile Image Default" /></a>
         </ul>
     </header>
+
+    <!-- The main page content -->
     <main>
         <h1>Tic Tac Toe Game</h1>
         <div id="buttonColumn">
+            <h2>Global Vs Class Scores</h2>
             <button id="globalButton" onclick="setGlobalOrLocalLeaderboard(0)">Global</button>
             <button id="classButton" onclick="setGlobalOrLocalLeaderboard(1)">Class</button>
+            <h2>Overall Vs Game Scores</h2>
             <ul>
                 <li><button id="overallButton" onclick="getLeaderboard(0)">Overall Score</button></li>
                 <li><button id="ticTacToeButton" onclick="getLeaderboard(1)">Tic Tac Toe Score</button></li>
@@ -132,13 +147,7 @@
                 <li><button id="sudokuButton" onclick="getLeaderboard(3)">Sudoku Score</button></li>
                 <li><button id="connect4Button" onclick="getLeaderboard(4)">Connect 4 Score</button></li>
                 <li><button id="rpsButton" onclick="getLeaderboard(5)">Rock-Paper-Scissors Score</button></li>
-                <li><button id="pokerButton" onclick="getLeaderboard(6)">Poker Score</button></li>
-                <li><button id="blackjackButton" onclick="getLeaderboard(7)">Blackjack Score</button></li>
-                <li><button id="wordSearchButton" onclick="getLeaderboard(8)">Word Search Score</button></li>
-                <li><button id="snakeButton" onclick="getLeaderboard(9)">Snake Score</button></li>
-                <li><button id="pacmanButton" onclick="getLeaderboard(10)">Pacman Score</button></li>
-                <li><button id="froggerButton" onclick="getLeaderboard(11)">Frogger Score</button></li>
-                <li><button id="cookieClickerButton" onclick="getLeaderboard(12)">Cookie Clicker Score</button></li>
+                <li><button id="wordSearchButton" onclick="getLeaderboard(6)">Word Search Score</button></li>
             </ul>
         </div>
         <div id="leaderboardColumn">
