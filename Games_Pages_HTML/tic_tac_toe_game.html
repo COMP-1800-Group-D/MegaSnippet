@@ -3,7 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Set the browser's title -->
     <title>MEGASNIPPET - Game - Tic Tac Toe</title>
+
+    <!-- Link the CSS stylesheets -->
     <link rel="stylesheet" href="../CSS/general_page_styling.css">
     <link rel="stylesheet" href="../CSS/general_page_header_styling.css">
     <link rel="stylesheet" href="../CSS/general_game_settings_page_styling.css">
@@ -30,15 +34,15 @@
         <h1>Tic Tac Toe Game Setup</h1>
         <div id="gameSettingsColumn">
             <ul class="twoButtonsPerLine">
-                <li><button id="xButton" onclick="setSide(0)">Play As X</button></li>
-                <li><button id="oButton" onclick="setSide(1)">Play As O</button></li>
+                <li><button id="xButton">Play As X</button></li>
+                <li><button id="oButton">Play As O</button></li>
             </ul>
             <ul class="oneButtonPerLine">
-                <li><button id="easyButton" onclick="setupGame(0)">Easy</button></li>
-                <li><button id="mediumButton" onclick="setupGame(1)">Medium</button></li>
-                <li><button id="hardButton" onclick="setupGame(2)">Hard</button></li>
+                <li><button id="easyButton">Easy</button></li>
+                <li><button id="mediumButton">Medium</button></li>
+                <li><button id="hardButton">Hard</button></li>
             </ul>
-            <button id="playButton" onclick="play_game()">Play Game</button>
+            <button id="playButton">Play Game</button>
         </div>
         <div id="gameExplanationColumn">
             <h2>Welcome to the Tic Tac Toe Game!</h2>
