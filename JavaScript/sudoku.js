@@ -19,6 +19,7 @@ const easy = [
   var disable_select;
   var total_seconds = 0;
   var timer;
+  var gameIsLive = false;
 
   window.onload = function(){
       id("play_game").addEventListener("click", start_game);
@@ -56,6 +57,7 @@ const easy = [
   }
 
   function start_game() {
+      if(gameIsLive){return}
       set_background_colour();
       let board;
       if (id("easy").checked) board = easy[0];
@@ -70,7 +72,8 @@ const easy = [
       id("numbers").classList.remove("hidden");
       id("time_spent").classList.remove("hidden");
       id("status").classList.remove("hidden");
-      id("lives").classList.remove("hidden")
+      id("lives").classList.remove("hidden");
+      gameIsLive = true;
   }
 
   function start_timer() {
@@ -112,12 +115,20 @@ const easy = [
         tile.id = idCount;
         idCount ++;
         tile.classList.add("tile");
-        if ((tile.id > 17 && tile.id < 27) || (tile.id > 44 & tile.id < 54)) {
+        if ((tile.id > 17 && tile.id < 27) || (tile.id > 44 && tile.id < 54) || (tile.id > 71 && tile.id <81)) {
             tile.classList.add("bottom_border");
         }
 
-        if ((tile.id + 1) % 9 == 3 || (tile.id + 1) % 9 == 6) {
+        if ((tile.id + 1) % 9 == 3 || (tile.id + 1) % 9 == 6 || (tile.id + 1) % 9 == 0){
             tile.classList.add("right_border");
+        }
+
+        if ((tile.id + 1) % 9 == 1){
+            tile.classList.add("left_border");
+        }
+
+        if (tile.id < 9){
+            tile.classList.add("top_border");
         }
         id("board").appendChild(tile);
       }
@@ -149,7 +160,7 @@ const easy = [
                     if (lives === 2){
                         id("status").textContent = "Big Mistake"
                     } else if (lives === 1) {
-                        id("status").textContent = " Haha, you are hanginng by a thread"
+                        id("status").textContent = " Haha, you are hanging by a thread"
                     }
                 }
                 selected_tile.classList.remove("incorrect");
@@ -180,7 +191,8 @@ const easy = [
       } else {
           id("status").textContent = "Wow, you actually won. Congratz?"
       }
-      
+
+      gameIsLive = false
   }
 
   function check_tile(tile) {
@@ -193,6 +205,7 @@ const easy = [
   }
 
   function clear_the_board() {
+      if(gameIsLive){return}
       let tiles = qsa(".tile");
       for ( let i = 0; i < tiles.length; i++) {
           tiles[i].remove();
