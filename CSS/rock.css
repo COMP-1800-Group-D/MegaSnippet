@@ -2,7 +2,7 @@ section {
     width: 1200px;
     height: 960px;
     background-color: lavender;
-    border: 3px solid rgb(173, 167, 212);
+
     margin: 0 auto;
     margin-top: 25px;
 }
@@ -57,12 +57,13 @@ section {
     width: 100px;
     height: 50px;
     margin-left: 550px;
-    border: 3px solid #c04a68;
+    border: none;
+    border-radius: 5px;
 }
 
 #reset:hover{
     background-color:#eb9ba1;
-    border: 3px solid #d66372;
+    border: none;
 }
 
 .move{
@@ -74,12 +75,12 @@ section {
     margin-right: 55px;
     background-color: #e4767f;
     color: whitesmoke;
-    border: 3px solid #c04a68;
+    border: none;
+    border-radius: 5px;
 }
 
 .move:hover{
     background-color:#eb9ba1;
-    border: 3px solid #d66372;
 }
 
 .move1{
@@ -91,12 +92,12 @@ section {
     margin-top: 15px;
     background-color: #e4767f;
     color: whitesmoke;
-    border: 3px solid #c04a68;
+    border: none;
+    border-radius: 5px;
 }
 
 .move1:hover{
     background-color:#eb9ba1;
-    border: 3px solid #d66372;
 }
 
 .move2{
@@ -108,10 +109,10 @@ section {
     margin-top: 15px;
     background-color:#e4767f;
     color: whitesmoke;
-    border: 3px solid #c04a68;
+    border: none;
+    border-radius: 5px;
 }
 
 .move2:hover{
     background-color:#eb9ba1;
-    border: 3px solid #d66372;
 }

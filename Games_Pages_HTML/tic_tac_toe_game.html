@@ -14,12 +14,13 @@
         
         #game_column {
             float: left;
-            width: 45%;
+            width: 50%;
+
         }
 
         #message_column {
             float: left;
-            width: 55%;
+            width: 40%;
             padding: 20px;
             font-size: 4vh;
         }
@@ -29,15 +30,16 @@
             grid-template-columns: auto auto auto;
             justify-content: space-evenly;
             align-content: space-evenly;
-            background-color: black;
+            background-color: rgb(56, 56, 165);
             width: 65vh;
             height: 65vh;
-            margin-left: auto;
+            margin-left: 20%;
+
         }
 
         .game_tile {
             font-family: Verdana;
-            background-color: white;
+            background-color: lavender;
             width: 20vh;
             height: 20vh;
             font-size: 17.5vh;
@@ -46,18 +48,30 @@
 
         #play_again_button {
             color: white;
-            background-color: red;
+            background-color: rgb(226, 92, 92);
+            border: none;
             visibility: hidden;
             font-size: 4vh;
             padding: 2vh 2vw;
+            border-radius: 5px;
+        }
+
+        #play_again_button:hover {
+            background-color: rgb(245, 173, 173);
         }
 
         #new_game_button {
             color: white;
-            background-color: red;
+            background-color: rgb(226, 92, 92);
+            border: none;
             visibility: hidden;
             font-size: 4vh;
             padding: 2vh 2vw;
+            border-radius: 5px;
+        }
+
+        #new_game_button:hover{
+            background-color: rgb(245, 173, 173);
         }
 
         #gamePlayMain {

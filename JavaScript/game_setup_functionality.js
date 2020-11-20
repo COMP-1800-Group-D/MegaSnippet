@@ -16,7 +16,7 @@ function setupGame(){
         }
     }
     document.getElementById("playButton").addEventListener("click", function(event){
-        playGame(setupData)
+        play_game(setupData)
     });
 }
 
