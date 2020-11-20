@@ -1,4 +1,5 @@
 #gameSetupMain div{
+    box-sizing: border-box;
     margin-top: 1vh;
     float: left;
 }
