@@ -20,3 +20,21 @@ function selectAButtonFromListOfButtonsDeselectAllOthers(buttonElement){
         }
     }
 }
+
+function removeElementFromArray(element, array) {
+    for (i = 0; i < array.length; i++){
+        if (array[i] == element){
+            array.splice(i, 1);
+        }
+    }
+}
+
+// You can use the array.includes(element) method instead
+function isElementInArray(element, array) {
+    for (i = 0; i < array.length; i++){
+        if (array[i] == element){
+            return true;
+        }
+    }
+    return false;
+}
