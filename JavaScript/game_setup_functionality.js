@@ -1,6 +1,14 @@
 /*
-Function to setup a game
-The setup screen must 
+Function to setup a game (allows the game parameters to be set on the setup game page)
+
+The setup game page must include a div element with the id "gameSettingsColumn"
+This div element must include unordered lists (ul), containing li elements, conatining the button elements
+Each ul is used to set a different parameter, i.e. if there are two ul elements, you can set two game parameters
+You must have a button in the div with the id "playButton", to start the game
+
+If this file is included in your program, the setupGame function will be called when the page loads.
+You must have a script linked in the same html file with a function, playGame, that takes an array of numbers 
+to set the game settings.
 */
 
 function setupGame(){
@@ -21,4 +29,5 @@ function setupGame(){
     });
 }
 
-setupGame();
+// The setupGame function is called when the page laods
+document.addEventListener('onload', setupGame())
