@@ -1,97 +1,142 @@
-let available_tiles = [0, 1, 2, 3, 4, 5, 6, 7, 8];
-let user_tiles = [];
-let computer_tiles = [];
-let game_end = false;
-let gameSides = ['xButton', 'oButton']
-
-const gameDifficultyButtons = ["easyButton", "mediumButton", "hardButton"]
-const gameDifficultyLevels = [50, 75, 90]
-let gameDefault = true;
-let gameDifficulty;
-let playerSide = 'X';
-
-function setSide(sideRefIndex){
-    selectAButtonFromListDeselectAllOtherButtons(sideRefIndex, gameSides)
-    playerSide = gameSides[sideRefIndex][0].toUpperCase();
-}
-
-function setupGame(difficultyIndex){
-    gameDefault = false;
-    selectAButtonFromListDeselectAllOtherButtons(difficultyIndex, gameDifficultyButtons)
-    gameDifficulty = gameDifficultyLevels[difficultyIndex];
-}
-
-function play_game(){
-    if (gameDefault){
-        setupGame(0);
-    }
+function playGame(gameSetupData){
+    // Switch display from the game setup page to the game play page
     document.getElementById("gameSetupMain").style.display = "none";
     document.getElementById("gamePlayMain").style.display = "block";
-}
 
-function pick_tile(tile){
-    if (!game_end && was_pick_acceptable(tile)) {
-        if (did_win(user_tiles)){
-            document.getElementById("message").innerHTML = 'Congradulations, you won! If you want to play again, please press the button below!';
-            game_end = true;
-            document.getElementById("play_again_button").style.visibility = "visible";
-            document.getElementById("new_game_button").style.visibility = "visible";
-        }
-        else if (did_tie()){
-            document.getElementById("message").innerHTML = 'Good game, it was a tie! If you want to play again, please press the button below!';
-            game_end = true;
-            document.getElementById("play_again_button").style.visibility = "visible";
-            document.getElementById("new_game_button").style.visibility = "visible";
-        }
-        else {
-            // Add a 400 milisecond wait before executing
-            computer_pick()
-        }
-        if (did_win(computer_tiles)){
-            document.getElementById("message").innerHTML = 'Unfortunately, you lost! If you want to play again, please press the button below!';
-            game_end = true;
-            document.getElementById("play_again_button").style.visibility = "visible";
-            document.getElementById("new_game_button").style.visibility = "visible";
-        }
+    // Read the game setup data
+    const gameSides = ['X', 'O'];
+    let playerSide = (gameSetupData[0] != -1) ? gameSides[gameSetupData[0]]:gameSides[0];
+    let computerSide = (gameSides.indexOf(playerSide) == 0) ? gameSides[1]:gameSides[0]
+    const gameDifficultyLevels = [50, 75, 90];
+    let gameDifficulty = (gameSetupData[1] != -1) ? gameDifficultyLevels[gameSetupData[1]]:gameDifficultyLevels[0];
+
+    // Setup the game tiles
+    let availableTiles = [0, 1, 2, 3, 4, 5, 6, 7, 8];
+    let userTiles = [];
+    let computerTiles = [];
+    let gameEnd = false;
+
+    // Check if player or computer is playing first
+    if (playerSide == 'O'){
+        document.getElementById("messagePrompt").textContent = "You're playing as O, so the computer has picked first!";
+        computerPick(computerSide, gameDifficulty, availableTiles, userTiles, computerTiles);
     }
+    else {
+        document.getElementById("messagePrompt").textContent = "You're playing as X, so you can pick first!";
+    }
+
+    // Create the event listener for each tile
+    let ticTacToeBoard = document.getElementById("ticTacToeBoard");
+    let boardTiles = ticTacToeBoard.querySelectorAll("div");
+    for (let tile = 0; tile < boardTiles.length; tile++){
+        boardTiles[tile].addEventListener('click', function(event){
+            if (!gameEnd && pickTile(tile, availableTiles, userTiles, playerSide)) {
+                gameEnd = getGameState(computerSide, gameDifficulty, availableTiles, userTiles, computerTiles);
+            }
+        });
+    }
+
+    document.getElementById("playAgainButton").addEventListener('click', function(event){
+        clearBoard()
+        document.getElementById("messageWarning").innerHTML = '';
+        document.getElementById("playAgainButton").style.visibility = "hidden";
+        document.getElementById("newGameButton").style.visibility = "hidden";
+        playGame(gameSetupData);
+    });
+        
+    document.getElementById("newGameButton").addEventListener('click', function(event){
+        clearBoard()
+        document.getElementById("messageWarning").innerHTML = '';
+        document.getElementById("playAgainButton").style.visibility = "hidden";
+        document.getElementById("newGameButton").style.visibility = "hidden";
+        document.getElementById("gameSetupMain").style.display = "block";
+        document.getElementById("gamePlayMain").style.display = "none";
+        setupGame();
+    });
 }
 
-function was_pick_acceptable(tile){
-    if (is_in_list(tile, available_tiles)) {
-        document.getElementById("message").innerHTML = '';
-        let tile_ID = "tile_" + tile;
-        document.getElementById(tile_ID).innerHTML = 'X';
-        user_tiles.push(tile);
-        remove_from_list(tile, available_tiles);
+function clearBoard(){
+    document.getElementById('tile0').innerHTML = '';
+    document.getElementById('tile1').innerHTML = '';
+    document.getElementById('tile2').innerHTML = '';
+    document.getElementById('tile3').innerHTML = '';
+    document.getElementById('tile4').innerHTML = '';
+    document.getElementById('tile5').innerHTML = '';
+    document.getElementById('tile6').innerHTML = '';
+    document.getElementById('tile7').innerHTML = '';
+    document.getElementById('tile8').innerHTML = '';
+}
+
+function getGameState(computerSide, gameDifficulty, availableTiles, userTiles, computerTiles){
+    if (didWin(userTiles)){
+        document.getElementById("messageWarning").innerHTML = 'Congradulations, you won! If you want to play again, please press the button below!';
+        document.getElementById("playAgainButton").style.visibility = "visible";
+        document.getElementById("newGameButton").style.visibility = "visible";
         return true;
     }
-    document.getElementById("message").innerHTML = 'Pease pick an empty tile!';
+    else if (didTie(availableTiles)){
+        document.getElementById("messageWarning").innerHTML = 'Good game, it was a tie! If you want to play again, please press the button below!';
+        document.getElementById("playAgainButton").style.visibility = "visible";
+        document.getElementById("newGameButton").style.visibility = "visible";
+        return true;
+    }
+    else {
+        // Add a 4000 milisecond wait before executing
+        computerPick(computerSide, gameDifficulty, availableTiles, userTiles, computerTiles);
+    }
+    if (didWin(computerTiles)){
+        document.getElementById("messageWarning").innerHTML = 'Unfortunately, you lost! If you want to play again, please press the button below!';
+        document.getElementById("playAgainButton").style.visibility = "visible";
+        document.getElementById("newGameButton").style.visibility = "visible";
+        return true;
+    }
+    else if (didTie(availableTiles)){
+        document.getElementById("messageWarning").innerHTML = 'Good game, it was a tie! If you want to play again, please press the button below!';
+        document.getElementById("playAgainButton").style.visibility = "visible";
+        document.getElementById("newGameButton").style.visibility = "visible";
+        return true;
+    }
+    else {
+        return false;
+    }
+}
+
+function pickTile(tile, availableTiles, userTiles, playerSide){
+    if (availableTiles.includes(tile)) {
+        document.getElementById("messageWarning").innerHTML = '';
+        let tileID = "tile" + tile;
+        document.getElementById(tileID).innerHTML = playerSide;
+        userTiles.push(tile);
+        removeElementFromArray(tile, availableTiles);
+        return true;
+    }
+    document.getElementById("messageWarning").innerHTML = 'Pease pick an empty tile!';
     return false;
 }
 
-function did_win(target_tiles){
-    if (is_in_list(0, target_tiles) && is_in_list(1, target_tiles) && is_in_list(2, target_tiles)){
+function didWin(targetTiles){
+    if (targetTiles.includes(0) && targetTiles.includes(1) && targetTiles.includes(2)){
         return true;
     }
-    else if (is_in_list(3, target_tiles) && is_in_list(4, target_tiles) && is_in_list(5, target_tiles)){
+    else if (targetTiles.includes(3) && targetTiles.includes(4) && targetTiles.includes(5)){
         return true;
     }
-    else if (is_in_list(6, target_tiles) && is_in_list(7, target_tiles) && is_in_list(8, target_tiles)){
+    else if (targetTiles.includes(6) && targetTiles.includes(7) && targetTiles.includes(8)){
         return true;
     }
-    else if (is_in_list(0, target_tiles) && is_in_list(3, target_tiles) && is_in_list(6, target_tiles)){
+    else if (targetTiles.includes(0) && targetTiles.includes(3) && targetTiles.includes(6)){
         return true;
     }
-    else if (is_in_list(1, target_tiles) && is_in_list(4, target_tiles) && is_in_list(7, target_tiles)){
+    else if (targetTiles.includes(1) && targetTiles.includes(4) && targetTiles.includes(7)){
         return true;
     }
-    else if (is_in_list(2, target_tiles) && is_in_list(5, target_tiles) && is_in_list(8, target_tiles)){
+    else if (targetTiles.includes(2) && targetTiles.includes(5) && targetTiles.includes(8)){
         return true;
     }
-    else if (is_in_list(0, target_tiles) && is_in_list(4, target_tiles) && is_in_list(8, target_tiles)){
+    else if (targetTiles.includes(0) && targetTiles.includes(4) && targetTiles.includes(8)){
         return true;
     }
-    else if (is_in_list(2, target_tiles) && is_in_list(4, target_tiles) && is_in_list(6, target_tiles)){
+    else if (targetTiles.includes(2) && targetTiles.includes(4) && targetTiles.includes(6)){
         return true;
     }
     else{
@@ -99,35 +144,31 @@ function did_win(target_tiles){
     }
 }
 
-function did_tie(){
-    if (available_tiles.length == 0)
+function didTie(availableTiles){
+    if (availableTiles.length == 0)
     {
         return true;
     }
     return false;
 }
 
-function computer_pick(){
-    // let pick_index = Math.floor(Math.random() * available_tiles.length);
-    // let pick = available_tiles[pick_index]
+function computerPick(computerSide, gameDifficulty, availableTiles, userTiles, computerTiles){
     let pick;
     if (Math.random() * 100 < gameDifficulty){
-        pick = bestTicTacToePick(available_tiles, user_tiles, computer_tiles);
+        pick = bestTicTacToePick(availableTiles, userTiles, computerTiles);
     }
     else {
-        pick = available_tiles[Math.floor(Math.random() * available_tiles.length)];
+        pick = availableTiles[Math.floor(Math.random() * availableTiles.length)];
     }
-    let comp_tile_ID = "tile_" + pick;
-    document.getElementById(comp_tile_ID).innerHTML = 'O';
-    computer_tiles.push(pick);
-    remove_from_list(pick, available_tiles)
+    let compTileID = "tile" + pick;
+    document.getElementById(compTileID).innerHTML = computerSide;
+    computerTiles.push(pick);
+    removeElementFromArray(pick, availableTiles)
 }
 
 function bestTicTacToePick(available, userSelected, computerSelected){
     let winningMove = canWin(available, computerSelected);
-    console.log(winningMove);
     let blockingMove = canWin(available, userSelected);
-    console.log(blockingMove)
     if (winningMove != -1){
         return winningMove;
     }
@@ -144,11 +185,10 @@ function canWin(available, alreadySelected){
         let missingTile = -1;
         for (let tileInQuestionIndex = 0; tileInQuestionIndex < winningCombos[winningOptionIndex].length; tileInQuestionIndex++){
             let tileInQuestion = winningCombos[winningOptionIndex][tileInQuestionIndex];
-            console.log(tileInQuestion)
-            if (is_in_list(tileInQuestion, alreadySelected)){
+            if (alreadySelected.includes(tileInQuestion)){
                 countInList++;
             }
-            else if (is_in_list(tileInQuestion, available)){
+            else if (available.includes(tileInQuestion)){
                 missingTile = tileInQuestion;
             }
         }
@@ -161,62 +201,32 @@ function canWin(available, alreadySelected){
 
 function bestMove(available, userSelected, computerSelected){
     let middleTile = 4
-    if (is_in_list(middleTile, available)){
+    if (available.includes(middleTile)){
         return middleTile;
     }
-    else if (is_in_list(0, available)){
+    else if (available.includes(0)){
         return 0;
     }
-    else if (is_in_list(2, available)){
+    else if (available.includes(2)){
         return 2;
     }
-    else if (is_in_list(6, available)){
+    else if (available.includes(6)){
         return 6;
     }
-    else if (is_in_list(8, available)){
+    else if (available.includes(8)){
         return 8;
     }
-    return available_tiles[Math.floor(Math.random() * available_tiles.length)];
+    return available[Math.floor(Math.random() * available.length)];
 }
 
-function is_in_list(num, num_list){
-    for (i = 0; i < num_list.length; i++){
-        if (num_list[i] == num){
-            return true;
-        }
-    }
-    return false;
-}
-
-function remove_from_list (num, num_list) {
-    for (i = 0; i < num_list.length; i++){
-        if (num_list[i] == num){
-            num_list.splice(i, 1)
-        }
-    }
-}
-
-function play_again(){
-    document.getElementById('tile_0').innerHTML = '';
-    document.getElementById('tile_1').innerHTML = '';
-    document.getElementById('tile_2').innerHTML = '';
-    document.getElementById('tile_3').innerHTML = '';
-    document.getElementById('tile_4').innerHTML = '';
-    document.getElementById('tile_5').innerHTML = '';
-    document.getElementById('tile_6').innerHTML = '';
-    document.getElementById('tile_7').innerHTML = '';
-    document.getElementById('tile_8').innerHTML = '';
-    available_tiles = [0, 1, 2, 3, 4, 5, 6, 7, 8]
-    user_tiles = []
-    computer_tiles = []
-    game_end = false;
-    document.getElementById("message").innerHTML = '';
-    document.getElementById("play_again_button").style.visibility = "hidden";
-    document.getElementById("new_game_button").style.visibility = "hidden";
-}
-
-function new_game(){
-    play_again();
-    document.getElementById("gameSetupMain").style.display = "block";
-    document.getElementById("gamePlayMain").style.display = "none";
+function getBoardState(){
+    console.log(document.getElementById('tile0'))
+    console.log(document.getElementById('tile1'))
+    console.log(document.getElementById('tile2'))
+    console.log(document.getElementById('tile3'))
+    console.log(document.getElementById('tile4'))
+    console.log(document.getElementById('tile5'))
+    console.log(document.getElementById('tile6'))
+    console.log(document.getElementById('tile7'))
+    console.log(document.getElementById('tile8'))
 }

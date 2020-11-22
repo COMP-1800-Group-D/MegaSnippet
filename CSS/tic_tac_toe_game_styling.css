@@ -2,20 +2,20 @@
     box-sizing: border-box;
 }
 
-#game_column {
+#gameColumn {
     float: left;
     width: 50%;
 
 }
 
-#message_column {
+#messageColumn {
     float: left;
     width: 40%;
     padding: 20px;
     font-size: 4vh;
 }
 
-#tic_tac_toe_board {
+#ticTacToeBoard {
     display: grid;
     grid-template-columns: auto auto auto;
     justify-content: space-evenly;
@@ -27,7 +27,7 @@
 
 }
 
-.game_tile {
+.gameTile {
     font-family: Verdana;
     background-color: lavender;
     width: 20vh;
@@ -36,7 +36,7 @@
     text-align: center;
 }
 
-#play_again_button {
+#playAgainButton {
     color: white;
     background-color: rgb(226, 92, 92);
     border: none;
@@ -46,11 +46,11 @@
     border-radius: 5px;
 }
 
-#play_again_button:hover {
+#playAgainButton:hover {
     background-color: rgb(245, 173, 173);
 }
 
-#new_game_button {
+#newGameButton {
     color: white;
     background-color: rgb(226, 92, 92);
     border: none;
@@ -60,7 +60,7 @@
     border-radius: 5px;
 }
 
-#new_game_button:hover{
+#newGameButton:hover{
     background-color: rgb(245, 173, 173);
 }
 
