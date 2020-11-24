@@ -1,5 +1,9 @@
+/*
+The tic tac toe game scripts
+*/
+
+// Main function for playing the game
 function playGame(gameSetupData){
-    // Switch display from the game setup page to the game play page
     document.getElementById("gameSetupMain").style.display = "none";
     document.getElementById("gamePlayMain").style.display = "block";
 
@@ -15,11 +19,13 @@ function playGame(gameSetupData){
     let userTiles = [];
     let computerTiles = [];
     let gameEnd = false;
+    updateBoard(playerSide, userTiles, computerSide, computerTiles, availableTiles)
 
     // Check if player or computer is playing first
     if (playerSide == 'O'){
         document.getElementById("messagePrompt").textContent = "You're playing as O, so the computer has picked first!";
-        computerPick(computerSide, gameDifficulty, availableTiles, userTiles, computerTiles);
+        computerPick(gameDifficulty, availableTiles, userTiles, computerTiles);
+        updateBoard(playerSide, userTiles, computerSide, computerTiles, availableTiles)
     }
     else {
         document.getElementById("messagePrompt").textContent = "You're playing as X, so you can pick first!";
@@ -30,82 +36,80 @@ function playGame(gameSetupData){
     let boardTiles = ticTacToeBoard.querySelectorAll("div");
     for (let tile = 0; tile < boardTiles.length; tile++){
         boardTiles[tile].addEventListener('click', function(event){
-            if (!gameEnd && pickTile(tile, availableTiles, userTiles, playerSide)) {
-                gameEnd = getGameState(computerSide, gameDifficulty, availableTiles, userTiles, computerTiles);
+            if (!gameEnd && pickTile(tile, availableTiles, userTiles)) {
+                updateBoard(playerSide, userTiles, computerSide, computerTiles, availableTiles)
+                gameEnd = getGameState(gameDifficulty, availableTiles, playerSide, userTiles, computerSide, computerTiles);
             }
         });
     }
 
     document.getElementById("playAgainButton").addEventListener('click', function(event){
-        clearBoard()
         document.getElementById("messageWarning").innerHTML = '';
-        document.getElementById("playAgainButton").style.visibility = "hidden";
-        document.getElementById("newGameButton").style.visibility = "hidden";
-        playGame(gameSetupData);
+        hideEndGameButtons()
+        availableTiles = [0, 1, 2, 3, 4, 5, 6, 7, 8];
+        userTiles = [];
+        computerTiles = [];
+        gameEnd = false;
+        updateBoard(playerSide, userTiles, computerSide, computerTiles, availableTiles)
+        if (playerSide == 'O'){
+            document.getElementById("messagePrompt").textContent = "You're playing as O, so the computer has picked first!";
+            computerPick(gameDifficulty, availableTiles, userTiles, computerTiles);
+            updateBoard(playerSide, userTiles, computerSide, computerTiles, availableTiles)
+        }
+        else {
+            document.getElementById("messagePrompt").textContent = "You're playing as X, so you can pick first!";
+        }
     });
-        
+            
     document.getElementById("newGameButton").addEventListener('click', function(event){
-        clearBoard()
         document.getElementById("messageWarning").innerHTML = '';
-        document.getElementById("playAgainButton").style.visibility = "hidden";
-        document.getElementById("newGameButton").style.visibility = "hidden";
+        hideEndGameButtons()
         document.getElementById("gameSetupMain").style.display = "block";
         document.getElementById("gamePlayMain").style.display = "none";
-        setupGame();
+        console.log(firstCheck)
+        firstCheck = false;
+        setupGame(false)
     });
 }
 
-function clearBoard(){
-    document.getElementById('tile0').innerHTML = '';
-    document.getElementById('tile1').innerHTML = '';
-    document.getElementById('tile2').innerHTML = '';
-    document.getElementById('tile3').innerHTML = '';
-    document.getElementById('tile4').innerHTML = '';
-    document.getElementById('tile5').innerHTML = '';
-    document.getElementById('tile6').innerHTML = '';
-    document.getElementById('tile7').innerHTML = '';
-    document.getElementById('tile8').innerHTML = '';
-}
 
-function getGameState(computerSide, gameDifficulty, availableTiles, userTiles, computerTiles){
-    if (didWin(userTiles)){
-        document.getElementById("messageWarning").innerHTML = 'Congradulations, you won! If you want to play again, please press the button below!';
-        document.getElementById("playAgainButton").style.visibility = "visible";
-        document.getElementById("newGameButton").style.visibility = "visible";
-        return true;
+// Function to display content to the board
+//*********************************************************************************************
+// Function to update the game board
+function updateBoard(playerSide, userTiles, computerSide, computerTiles, availableTiles){
+    for (let userTileIndex = 0; userTileIndex < userTiles.length; userTileIndex++){
+        let tileID = "tile" + userTiles[userTileIndex];
+        document.getElementById(tileID).textContent = playerSide;
     }
-    else if (didTie(availableTiles)){
-        document.getElementById("messageWarning").innerHTML = 'Good game, it was a tie! If you want to play again, please press the button below!';
-        document.getElementById("playAgainButton").style.visibility = "visible";
-        document.getElementById("newGameButton").style.visibility = "visible";
-        return true;
+    for (let computerTileIndex = 0; computerTileIndex < computerTiles.length; computerTileIndex++){
+        let tileID = "tile" + computerTiles[computerTileIndex];
+        document.getElementById(tileID).textContent = computerSide;
     }
-    else {
-        // Add a 4000 milisecond wait before executing
-        computerPick(computerSide, gameDifficulty, availableTiles, userTiles, computerTiles);
-    }
-    if (didWin(computerTiles)){
-        document.getElementById("messageWarning").innerHTML = 'Unfortunately, you lost! If you want to play again, please press the button below!';
-        document.getElementById("playAgainButton").style.visibility = "visible";
-        document.getElementById("newGameButton").style.visibility = "visible";
-        return true;
-    }
-    else if (didTie(availableTiles)){
-        document.getElementById("messageWarning").innerHTML = 'Good game, it was a tie! If you want to play again, please press the button below!';
-        document.getElementById("playAgainButton").style.visibility = "visible";
-        document.getElementById("newGameButton").style.visibility = "visible";
-        return true;
-    }
-    else {
-        return false;
+    for (let availableTileIndex = 0; availableTileIndex < availableTiles.length; availableTileIndex++){
+        let tileID = "tile" + availableTiles[availableTileIndex];
+        document.getElementById(tileID).textContent = "";
     }
 }
 
-function pickTile(tile, availableTiles, userTiles, playerSide){
+// Function to display the end game buttons
+function displayEndGameButtons(){
+    document.getElementById("playAgainButton").style.visibility = "visible";
+    document.getElementById("newGameButton").style.visibility = "visible";
+}
+
+// Function to hide the end game buttons
+function hideEndGameButtons(){
+    document.getElementById("playAgainButton").style.visibility = "hidden";
+    document.getElementById("newGameButton").style.visibility = "hidden";
+}
+
+
+// Function to allow the player to pick a tile
+//*********************************************************************************************
+// Function to recieve and validate a user pick
+function pickTile(tile, availableTiles, userTiles){
     if (availableTiles.includes(tile)) {
         document.getElementById("messageWarning").innerHTML = '';
-        let tileID = "tile" + tile;
-        document.getElementById(tileID).innerHTML = playerSide;
         userTiles.push(tile);
         removeElementFromArray(tile, availableTiles);
         return true;
@@ -114,6 +118,42 @@ function pickTile(tile, availableTiles, userTiles, playerSide){
     return false;
 }
 
+
+// Function to check the game status
+//*********************************************************************************************
+// Function to check the game data and determine the game results
+function getGameState(gameDifficulty, availableTiles, playerSide, userTiles, computerSide, computerTiles){
+    if (didWin(userTiles)){
+        document.getElementById("messageWarning").innerHTML = 'Congradulations, you won! If you want to play again, please press the button below!';
+        displayEndGameButtons()
+        return true;
+    }
+    else if (didTie(availableTiles)){
+        document.getElementById("messageWarning").innerHTML = 'Good game, it was a tie! If you want to play again, please press the button below!';
+        displayEndGameButtons()
+        return true;
+    }
+    else {
+        // Add a 4000 milisecond wait before executing
+        computerPick(gameDifficulty, availableTiles, userTiles, computerTiles);
+        updateBoard(playerSide, userTiles, computerSide, computerTiles, availableTiles)
+    }
+    if (didWin(computerTiles)){
+        document.getElementById("messageWarning").innerHTML = 'Unfortunately, you lost! If you want to play again, please press the button below!';
+        displayEndGameButtons()
+        return true;
+    }
+    else if (didTie(availableTiles)){
+        document.getElementById("messageWarning").innerHTML = 'Good game, it was a tie! If you want to play again, please press the button below!';
+        displayEndGameButtons()
+        return true;
+    }
+    else {
+        return false;
+    }
+}
+
+// Function that checks if the player or computer won
 function didWin(targetTiles){
     if (targetTiles.includes(0) && targetTiles.includes(1) && targetTiles.includes(2)){
         return true;
@@ -144,6 +184,7 @@ function didWin(targetTiles){
     }
 }
 
+// Function that checks if the player and computer tied
 function didTie(availableTiles){
     if (availableTiles.length == 0)
     {
@@ -152,7 +193,11 @@ function didTie(availableTiles){
     return false;
 }
 
-function computerPick(computerSide, gameDifficulty, availableTiles, userTiles, computerTiles){
+
+// Function to define the bot's logic
+//*********************************************************************************************
+// Function for the computer to pick a tile
+function computerPick(gameDifficulty, availableTiles, userTiles, computerTiles){
     let pick;
     if (Math.random() * 100 < gameDifficulty){
         pick = bestTicTacToePick(availableTiles, userTiles, computerTiles);
@@ -160,12 +205,11 @@ function computerPick(computerSide, gameDifficulty, availableTiles, userTiles, c
     else {
         pick = availableTiles[Math.floor(Math.random() * availableTiles.length)];
     }
-    let compTileID = "tile" + pick;
-    document.getElementById(compTileID).innerHTML = computerSide;
     computerTiles.push(pick);
     removeElementFromArray(pick, availableTiles)
 }
 
+// Function to determine the best tic tac toe move
 function bestTicTacToePick(available, userSelected, computerSelected){
     let winningMove = canWin(available, computerSelected);
     let blockingMove = canWin(available, userSelected);
@@ -178,6 +222,7 @@ function bestTicTacToePick(available, userSelected, computerSelected){
     return bestMove(available, userSelected, computerSelected);
 }
 
+// Function to determine if the next move could be a winning move
 function canWin(available, alreadySelected){
     let winningCombos = [[0, 1, 2], [3, 4, 5], [6, 7, 8], [0, 3, 6], [1, 4, 7], [2, 5, 8], [0, 4, 8], [2, 4, 6]]
     for (let winningOptionIndex = 0; winningOptionIndex < winningCombos.length; winningOptionIndex++){
@@ -199,6 +244,7 @@ function canWin(available, alreadySelected){
     return -1;
 }
 
+// Function to determine the computer's best move 
 function bestMove(available, userSelected, computerSelected){
     let middleTile = 4
     if (available.includes(middleTile)){
@@ -219,14 +265,24 @@ function bestMove(available, userSelected, computerSelected){
     return available[Math.floor(Math.random() * available.length)];
 }
 
-function getBoardState(){
-    console.log(document.getElementById('tile0'))
-    console.log(document.getElementById('tile1'))
-    console.log(document.getElementById('tile2'))
-    console.log(document.getElementById('tile3'))
-    console.log(document.getElementById('tile4'))
-    console.log(document.getElementById('tile5'))
-    console.log(document.getElementById('tile6'))
-    console.log(document.getElementById('tile7'))
-    console.log(document.getElementById('tile8'))
-}
+// // Function to determine which the best corner tile to pick
+// function pickCornerTile(available, userSelected, computerSelected){
+//     let availableCorners = []
+//     if (available.includes(0)){
+//         availableCorners.push(0)
+//     }
+//     else if (available.includes(2)){
+//         availableCorners.push(2)
+//     }
+//     else if (available.includes(6)){
+//         availableCorners.push(6)
+//     }
+//     else if (available.includes(8)){
+//         availableCorners.push(8)
+//     }
+//     if (availableCorners.length == 4 && userSelected.length == 2)
+//         return availableCorners[Math.floor(Math.random() * availableCorners.length)]
+//     else {
+//         return availableCorners[Math.floor(Math.random() * availableCorners.length)]
+//     }
+// }

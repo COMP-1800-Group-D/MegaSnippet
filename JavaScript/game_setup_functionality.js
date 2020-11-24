@@ -18,16 +18,27 @@ function setupGame(){
         setupData.push(-1);
         let buttonsInButtonList = buttonLists[buttonListIndex].querySelectorAll("button");
         for (let buttonIndex = 0; buttonIndex < buttonsInButtonList.length; buttonIndex++){
-            buttonsInButtonList[buttonIndex].addEventListener("click", function(event){
+            function setParameter(event){
                 selectAButtonFromListOfButtonsDeselectAllOthers(buttonsInButtonList[buttonIndex]);
                 setupData[buttonListIndex] = buttonIndex;
-            });
+            }
+            buttonsInButtonList[buttonIndex].addEventListener("click", setParameter);
         }
     }
+    // function playGameEvent(event){
+    //     for (let buttonListIndex = 0; buttonListIndex < buttonLists.length; buttonListIndex++){
+    //         let buttonsInButtonList = buttonLists[buttonListIndex].querySelectorAll("button");
+    //         for (let buttonIndex = 0; buttonIndex < buttonsInButtonList.length; buttonIndex++){
+    //             buttonsInButtonList[buttonIndex].removeEventListener("click", setParameter);
+    //         }
+    //     }
+    //     document.getElementById("playButton").removeEventListener("click", playGameEvent);
+    //     playGame(setupData)
+    // }
     document.getElementById("playButton").addEventListener("click", function(event){
         playGame(setupData);
     });
 }
 
 // The setupGame function is called when the page laods
-document.addEventListener('onload', setupGame())
+document.addEventListener('onload', setupGame());
