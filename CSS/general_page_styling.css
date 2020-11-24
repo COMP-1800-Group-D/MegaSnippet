@@ -18,3 +18,13 @@ main h1 {
     margin-top: 4vh;
     margin-bottom: 2vh;
 }
+
+/* Custom font family */
+@font-face{
+    font-family: Agency;
+    src: url(AgencyFB-Bold.ttf);
+}
+
+body{
+    font-family: Agency;
+}
