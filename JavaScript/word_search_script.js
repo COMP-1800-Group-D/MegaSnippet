@@ -1,5 +1,14 @@
 let gameDefault = true;
 let gameDifficultyWordNumber;
+let words3LettersLong = ['cat', 'dog', 'ace', 'bug', 'fan', 'joy', 'elf', 'zoo', 'art', 'bat', 'bed', 'bee', 'dad', 'mom', 'car', 'map', 'pie']
+let words4LettersLong = ['bake', 'arid', 'arks', 'bank', 'camp', 'crow', 'food', 'fire', 'gate', 'hive', 'icon', 'lava', 'lamp', 'mask', 'pink']
+let words5LettersLong = ['pizza', 'black', 'alarm', 'chart', 'field', 'fruit', 'grape', 'label', 'medal', 'novel', 'pedal', 'pasta']
+let words6LettersLong = ['carpet', 'shrimp', 'accept', 'burger', 'buzzer', 'candle', 'emblem', 'goblin', 'shape', 'water', 'tower', 'morale', 'pencil', 'points', 'rabbit', 'ticket', 'window', 'supply', 'spider', 'purple', 'number']
+let words7LettersLong = ['gobblet', 'balloon', 'bananas', 'capital', 'shields', 'gorilla', 'inverse', 'leaders', 'martial', 'message']
+let words8LettersLong = ['accurate', 'creation', 'equality', 'engineer', 'language', 'medieval', 'powerful', 'tomorrow', 'workshop', 'triangle']
+let words9LettersLong = ['chocolate', 'beautiful', 'christmas', 'adventure', 'important', 'education', 'crocodile', 'invisible', 'vegetable', 'halloween', 'president', 'knowledge']
+let words10LettersLong = ['additional', 'appearance', 'basketball', 'literature', 'technology', 'government', 'strawberry', 'university', 'apocalypse']
+let wordsArray = [words3LettersLong, words4LettersLong, words5LettersLong, words6LettersLong, words7LettersLong, words8LettersLong, words9LettersLong, words10LettersLong]
 
 // Event listeners
 document.getElementById("easyButton").addEventListener('click', function (event) {
@@ -65,4 +74,20 @@ function generateBoard(difficultyWordNumber){
     for (let count = 0; count < difficultyWordNumber**2; count++){
         addTile(tile_width, tile_height, count);
     }
+
+    console.log(selectWords(difficultyWordNumber))
+}
+
+function selectWords(numberWords){
+    let selectedWords = []
+    for (let i = 0; i < numberWords; i++){
+        maxWordLength = wordsArray.length; // Length 8
+        if (numberWords > maxWordLength-2){
+            maxWordLength -= 2;
+        }
+        chooseWordLength = Math.floor(Math.random() * maxWordLength);
+        word = Math.floor(Math.random() * wordsArray[chooseWordLength].length);
+        selectedWords.push(wordsArray[chooseWordLength][word]);
+    }
+    return selectedWords;
 }
