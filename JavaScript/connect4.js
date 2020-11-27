@@ -23,7 +23,7 @@ const row3 = [allCells[21], allCells[22], allCells[23], allCells[24], allCells[2
 const row4 = [allCells[28], allCells[29], allCells[30], allCells[31], allCells[32], allCells[33], allCells[34]];
 const row5 = [allCells[35], allCells[36], allCells[37], allCells[38], allCells[39], allCells[40], allCells[41]];
 const rows = [row0, row1, row2, row3, row4, row5, topRow];
-
+const robotrows = [row5, row4, row3, row2, row1, row0]
 
 
 // variables
@@ -211,207 +211,278 @@ const checkWinningCells = (cells) => {
     yellowIsNext ? document.getElementById('yellowWins').style.display = 'block' : document.getElementById('redWins').style.display = 'block';
     return true
 }
+const checkblock = (cells) =>{
+    if (cells.length < 4) return false;
 
-const computerMove = (cell) =>{
+    else if (cells.length >= 4) {
+        const [rowIndex, colIndex] = getCellLocation(cells[0]);
+        let opencell = getFirstOpenCellForColumn(colIndex)
+        opencell.classList.add('red')
+        return opencell
+    }
+}
+
+const blockmove = () =>{
+    for(row of robotrows){
+        for(cell of row){
+            let [rowIndex, colIndex] = getCellLocation(cell);
+            let classList = getClassListArray(cell);
+            if(!classList.includes('yellow') && !classList.includes('red')){
+                let winningCells = [cell];
+                let rowToCheck = rowIndex;
+                let colToCheck = colIndex - 1;
+                while (colToCheck >= 0){
+                    const cellToCheck = rows[rowToCheck][colToCheck];
+                    if (getColorOfCell(cellToCheck) === 'yellow') {
+                        winningCells.push(cellToCheck);
+                        colToCheck--;
+                    }else{
+                        break;
+                    }
+                }
+                colToCheck = colIndex + 1;
+                while (colToCheck <= 6){
+                    const cellToCheck = rows[rowToCheck][colToCheck];
+                    if (getColorOfCell(cellToCheck) === 'yellow') {
+                        winningCells.push(cellToCheck);
+                        colToCheck++;
+                    }else{
+                        break;
+                    }
+                }
+                let isblocking = checkblock(winningCells);
+                if (isblocking) return isblocking;
+            
+                winningCells = [cell];
+                rowToCheck = rowIndex - 1;
+                colToCheck = colIndex;
+                while (rowToCheck >= 0){
+                    const cellToCheck = rows[rowToCheck][colToCheck];
+                    if (getColorOfCell(cellToCheck) === 'yellow') {
+                        winningCells.push(cellToCheck);
+                        rowToCheck--;
+                    }else{
+                        break;
+                    }
+                }
+                rowToCheck = rowIndex + 1;
+                while (rowToCheck <= 5){
+                    const cellToCheck = rows[rowToCheck][colToCheck];
+                    if (getColorOfCell(cellToCheck) === 'yellow') {
+                        winningCells.push(cellToCheck);
+                        rowToCheck++;
+                    }else{
+                        break;
+                    }
+                }
+                isblocking = checkblock(winningCells);
+                if (isblocking) return isblocking;
+            
+                winningCells = [cell];
+                rowToCheck = rowIndex + 1;
+                colToCheck = colIndex - 1;
+                while (colToCheck >= 0 && rowToCheck <= 5){
+                    const cellToCheck = rows[rowToCheck][colToCheck];
+                    if (getColorOfCell(cellToCheck) === 'yellow') {
+                        winningCells.push(cellToCheck);
+                        rowToCheck++;
+                        colToCheck--;
+                    }else{
+                        break;
+                    }
+                }
+                rowToCheck = rowIndex - 1;
+                colToCheck = colIndex + 1;
+                while (colToCheck <= 6 && rowToCheck >= 0){
+                    const cellToCheck = rows[rowToCheck][colToCheck];
+                    if (getColorOfCell(cellToCheck) === 'yellow') {
+                        winningCells.push(cellToCheck);
+                        rowToCheck--;
+                        colToCheck++;
+                    }else{
+                        break;
+                    }
+                }
+                isblocking = checkblock(winningCells);
+                if (isblocking) return isblocking;
+            
+                winningCells = [cell];
+                rowToCheck = rowIndex + 1;
+                colToCheck = colIndex + 1;
+                while (colToCheck <= 6 && rowToCheck <= 5){
+                    const cellToCheck = rows[rowToCheck][colToCheck];
+                    if (getColorOfCell(cellToCheck) === 'yellow') {
+                        winningCells.push(cellToCheck);
+                        rowToCheck++;
+                        colToCheck++;
+                    }else{
+                        break;
+                    }
+                }
+                rowToCheck = rowIndex - 1;
+                colToCheck = colIndex - 1;
+                while (colToCheck >= 0 && rowToCheck >= 0){
+                    const cellToCheck = rows[rowToCheck][colToCheck];
+                    if (getColorOfCell(cellToCheck) === 'yellow') {
+                        winningCells.push(cellToCheck);
+                        rowToCheck--;
+                        colToCheck--;
+                    }else{
+                        break;
+                    }
+                }
+                isblocking = checkblock(winningCells);
+                if (isblocking) return isblocking;
+            }
+        }
+    }
+    return false
+}
+
+const winningmove = () =>{
+    for(row of robotrows){
+        for(cell of row){
+            let [rowIndex, colIndex] = getCellLocation(cell);
+            let classList = getClassListArray(cell);
+            if(!classList.includes('yellow') && !classList.includes('red')){
+                let winningCells = [cell];
+                let rowToCheck = rowIndex;
+                let colToCheck = colIndex - 1;
+                while (colToCheck >= 0){
+                    const cellToCheck = rows[rowToCheck][colToCheck];
+                    if (getColorOfCell(cellToCheck) === 'red') {
+                        winningCells.push(cellToCheck);
+                        colToCheck--;
+                    }else{
+                        break;
+                    }
+                }
+                colToCheck = colIndex + 1;
+                while (colToCheck <= 6){
+                    const cellToCheck = rows[rowToCheck][colToCheck];
+                    if (getColorOfCell(cellToCheck) === 'red') {
+                        winningCells.push(cellToCheck);
+                        colToCheck++;
+                    }else{
+                        break;
+                    }
+                }
+                let isblocking = checkblock(winningCells);
+                if (isblocking) return isblocking;
+            
+                winningCells = [cell];
+                rowToCheck = rowIndex - 1;
+                colToCheck = colIndex;
+                while (rowToCheck >= 0){
+                    const cellToCheck = rows[rowToCheck][colToCheck];
+                    if (getColorOfCell(cellToCheck) === 'red') {
+                        winningCells.push(cellToCheck);
+                        rowToCheck--;
+                    }else{
+                        break;
+                    }
+                }
+                rowToCheck = rowIndex + 1;
+                while (rowToCheck <= 5){
+                    const cellToCheck = rows[rowToCheck][colToCheck];
+                    if (getColorOfCell(cellToCheck) === 'red') {
+                        winningCells.push(cellToCheck);
+                        rowToCheck++;
+                    }else{
+                        break;
+                    }
+                }
+                isblocking = checkblock(winningCells);
+                if (isblocking) return isblocking;
+            
+                winningCells = [cell];
+                rowToCheck = rowIndex + 1;
+                colToCheck = colIndex - 1;
+                while (colToCheck >= 0 && rowToCheck <= 5){
+                    const cellToCheck = rows[rowToCheck][colToCheck];
+                    if (getColorOfCell(cellToCheck) === 'red') {
+                        winningCells.push(cellToCheck);
+                        rowToCheck++;
+                        colToCheck--;
+                    }else{
+                        break;
+                    }
+                }
+                rowToCheck = rowIndex - 1;
+                colToCheck = colIndex + 1;
+                while (colToCheck <= 6 && rowToCheck >= 0){
+                    const cellToCheck = rows[rowToCheck][colToCheck];
+                    if (getColorOfCell(cellToCheck) === 'red') {
+                        winningCells.push(cellToCheck);
+                        rowToCheck--;
+                        colToCheck++;
+                    }else{
+                        break;
+                    }
+                }
+                isblocking = checkblock(winningCells);
+                if (isblocking) return isblocking;
+            
+                winningCells = [cell];
+                rowToCheck = rowIndex + 1;
+                colToCheck = colIndex + 1;
+                while (colToCheck <= 6 && rowToCheck <= 5){
+                    const cellToCheck = rows[rowToCheck][colToCheck];
+                    if (getColorOfCell(cellToCheck) === 'red') {
+                        winningCells.push(cellToCheck);
+                        rowToCheck++;
+                        colToCheck++;
+                    }else{
+                        break;
+                    }
+                }
+                rowToCheck = rowIndex - 1;
+                colToCheck = colIndex - 1;
+                while (colToCheck >= 0 && rowToCheck >= 0){
+                    const cellToCheck = rows[rowToCheck][colToCheck];
+                    if (getColorOfCell(cellToCheck) === 'red') {
+                        winningCells.push(cellToCheck);
+                        rowToCheck--;
+                        colToCheck--;
+                    }else{
+                        break;
+                    }
+                }
+                isblocking = checkblock(winningCells);
+                if (isblocking) return isblocking;
+            }
+        }
+    }
+    return false
+}
+
+const randommove = () =>{
+    let loop = true
+    while(loop){
+        let col = Math.floor(Math.random() * 7);
+        let openCell = getFirstOpenCellForColumn(col);
+        if(openCell){
+            loop = false
+            openCell.classList.add('red')
+            return openCell
+        }
+    }
+}
+
+const computerMove = () =>{
     //check for sets of 3
     //place to block 3
     //check whole board for set of 3 with empty inbetween
     //place to block 3
     //choose a red and put to closest column
     //if no reds then choose random spot
-    const [rowIndex, colIndex] = getCellLocation(cell);
-    //horizontal check left
-    let winningCells = [cell];
-    let rowToCheck = rowIndex;
-    let colToCheck = colIndex - 1;
-    while (colToCheck >= 0){
-        const cellToCheck = rows[rowToCheck][colToCheck];
-        if (getColorOfCell(cellToCheck) === 'yellow') {
-            winningCells.push(cellToCheck);
-            colToCheck--;
-        }else{
-            break;
-        }
-        if (winningCells.length == 3){                
-            if (colIndex - 3 >= 0 && rowIndex != 5 && getColorOfCell(rows[rowIndex + 1][colIndex - 3])){
-                if(getColorOfCell(rows[rowIndex + 1][colIndex - 3])){
-                    console.log(getColorOfCell(rows[rowIndex + 1][colIndex - 3]))
-                    const openCell = getFirstOpenCellForColumn(colIndex - 3)
-                    if(!openCell){}
-                    else{openCell.classList.add('red'); return}
-                }
-            }            
-            else if (colIndex + 1 <= 6 && rowIndex != 5 && getColorOfCell([rowIndex + 1, colIndex + 1])){
-                if(getColorOfCell([rowIndex + 1, colIndex + 1])){
-                    console.log(getColorOfCell(rows[rowIndex + 1][colIndex + 1]))
-                    const openCell = getFirstOpenCellForColumn(colIndex + 1)
-                    if(!openCell){}
-                    else{openCell.classList.add('red'); return}
-                }
-            }
-            else if (colIndex - 3 >= 0){
-                console.log('bruh')
-                const openCell = getFirstOpenCellForColumn(colIndex - 3)
-                if(!openCell){}
-                else{openCell.classList.add('red'); return}
-            }
-
-            else if (colIndex + 1 <= 6){
-                console.log("bruh")
-                const openCell = getFirstOpenCellForColumn(colIndex + 1)
-                if(!openCell){}
-                else{openCell.classList.add('red'); return}
-            }
-        }
-    }
-    //horizontal check right
-    colToCheck = colIndex + 1;
-    while (colToCheck <= 6){
-        const cellToCheck = rows[rowToCheck][colToCheck];
-        if (getColorOfCell(cellToCheck) === 'yellow') {
-            winningCells.push(cellToCheck);
-            colToCheck++;
-        }else{
-            break;
-        }
-        console.log(rowIndex != 5) 
-        if (winningCells.length == 3){  
-            if (colIndex + 3 <= 6 && rowIndex != 5 && getColorOfCell(rows[rowIndex + 1][colIndex + 3])){
-                if(getColorOfCell(rows[rowIndex + 1][colIndex + 3])){
-                    console.log(getColorOfCell(rows[rowIndex + 1][colIndex + 3]))
-                    const openCell = getFirstOpenCellForColumn(colIndex + 3)
-                    if(!openCell){}
-                    else{openCell.classList.add('red'); return}
-                }
-            }       
-            else if (colIndex - 1 >= 0 && rowIndex != 5 && getColorOfCell([rowIndex + 1, colIndex - 1])){
-                console.log("here")
-                if(getColorOfCell([rowIndex + 1, colIndex - 1])){
-                    console.log(getColorOfCell(rows[rowIndex + 1][colIndex - 1]))
-                    const openCell = getFirstOpenCellForColumn(colIndex - 1)
-                    if(!openCell){}
-                    else{openCell.classList.add('red'); return}
-                }
-            }
-            else if (colIndex + 3 <= 6){
-                console.log('bruh')
-                const openCell = getFirstOpenCellForColumn(colIndex + 3)
-                if(!openCell){}
-                else{openCell.classList.add('red'); return}
-            }
-
-            else if (colIndex - 1 >= 0){
-                console.log("bruh")
-                const openCell = getFirstOpenCellForColumn(colIndex - 1)
-                if(!openCell){}
-                else{openCell.classList.add('red'); return}
-            }
-        }
-        
-    }
-    //vertical check down
-    winningCells = [cell];
-    colToCheck = colIndex
-    rowToCheck = rowIndex + 1;
-    while (rowToCheck <= 5){
-        const cellToCheck = rows[rowToCheck][colToCheck];
-        if (getColorOfCell(cellToCheck) === 'yellow') {
-            winningCells.push(cellToCheck);
-            rowToCheck++;
-        }else{
-            break;
-        }
-        
-        if (winningCells.length == 3){
-            if (rowIndex - 1 >= 0){
-                const openCell = getFirstOpenCellForColumn(colIndex)
-                if(!openCell){}
-                else{openCell.classList.add('red')}
-            }
-        }
-    }
-    //diagonal check /
-    winningCells = [cell];
-    rowToCheck = rowIndex + 1;
-    colToCheck = colIndex - 1;
-    while (colToCheck >= 0 && rowToCheck <= 5){
-        const cellToCheck = rows[rowToCheck][colToCheck];
-        if (getColorOfCell(cellToCheck) === 'yellow') {
-            winningCells.push(cellToCheck);
-            rowToCheck++;
-            colToCheck--;
-        }else{
-            break;
-        }
-        if (winningCells.length == 3){
-            if (colIndex - 1 >= 0 && rowIndex + 1 <= 5){
-                const openCell = getFirstOpenCellForColumn(colIndex - 1)
-                if(!openCell){}
-                else{openCell.classList.add('red')}
-            }
-        }
-    }
-    rowToCheck = rowIndex - 1;
-    colToCheck = colIndex + 1;
-    while (colToCheck <= 6 && rowToCheck >= 0){
-        const cellToCheck = rows[rowToCheck][colToCheck];
-        if (getColorOfCell(cellToCheck) === 'yellow') {
-            winningCells.push(cellToCheck);
-            rowToCheck--;
-            colToCheck++;
-        }else{
-            break;
-        }
-        if (winningCells.length == 3){
-            if (colIndex + 3 <= 6 && rowIndex - 3 >= 0){
-                const openCell = getFirstOpenCellForColumn(colIndex + 3)
-                if(!openCell){}
-                else{openCell.classList.add('red')}
-            }
-        }
-    }
-    //diagonal check \
-    winningCells = [cell];
-    rowToCheck = rowIndex + 1;
-    colToCheck = colIndex + 1;
-    while (colToCheck <= 6 && rowToCheck <= 5){
-        const cellToCheck = rows[rowToCheck][colToCheck];
-        if (getColorOfCell(cellToCheck) === 'yellow') {
-            winningCells.push(cellToCheck);
-            rowToCheck++;
-            colToCheck++;
-        }else{
-            break;
-        }
-        if (winningCells.length == 3){
-            if (colIndex + 3 <= 6 && rowIndex + 3 <= 5){
-                const openCell = getFirstOpenCellForColumn(colIndex + 3)
-                if(!openCell){}
-                else{openCell.classList.add('red')}
-            }
-        }
-    }
-    rowToCheck = rowIndex - 1;
-    colToCheck = colIndex - 1;
-    while (colToCheck >= 0 && rowToCheck >= 0){
-        const cellToCheck = rows[rowToCheck][colToCheck];
-        if (getColorOfCell(cellToCheck) === 'yellow') {
-            winningCells.push(cellToCheck);
-            rowToCheck--;
-            colToCheck--;
-        }else{
-            break;
-        }
-    }
-    if (winningCells.length == 3){
-        if (colIndex - 3 >= 0 && rowIndex - 3 >= 0){
-            const openCell = getFirstOpenCellForColumn(colIndex - 3)
-            if(!openCell){}
-            else{openCell.classList.add('red')}
-        }
-    }
-
-}
+    let cell = winningmove();
+    if (cell) return cell;
+    cell = blockmove();
+    if (cell) return cell;
+    cell = randommove();
+    return cell
+}   
 
 // event handlers
 const handleCellMouseOver = (event) =>{
@@ -434,16 +505,17 @@ const handleCellClick = (event) =>{
     const cell = event.target;
     const [rowIndex, colIndex] = getCellLocation(cell);
     
-    const openCell = getFirstOpenCellForColumn(colIndex)
+    let openCell = getFirstOpenCellForColumn(colIndex)
     
     if (!openCell) return;
 
     openCell.classList.add('yellow');
     checkStatusOfGame(openCell)
     yellowIsNext = !yellowIsNext;
-    if (!gameIsLive) return;
-    computerMove(openCell);
+    openCell = computerMove();
+    checkStatusOfGame(openCell)
     yellowIsNext = !yellowIsNext;
+    if (!gameIsLive) return;
     const topCell = topCells[colIndex];
     topCell.classList.add('yellow')
 }
