@@ -7,70 +7,7 @@
     <link rel="stylesheet" href="../CSS/general_page_styling.css">
     <link rel="stylesheet" href="../CSS/general_page_header_styling.css">
     <link rel="stylesheet" href="../CSS/general_game_settings_page_styling.css">
-    <style>
-        main h1 {
-            text-align: center;
-            font-size: 6vh;
-            margin-top: 4vh;
-            margin-bottom: 2vh;
-        }
-
-        #gamePlayMain {
-            display: none;
-        }
-
-        #gamePlayMain div {
-            box-sizing: border-box;
-        }
-
-        #gameColumn {
-            float: left;
-            width: 45%;
-        }
-
-        #wordsColumn {
-            float: left;
-            width: 55%;
-            padding: 20px;
-            font-size: 4vh;
-        }
-
-        #wordSearchBoard {
-            background-color: lavender;
-            border: 10px solid indigo;
-            width: 70vh;
-            height: 70vh;
-            margin-left: auto;
-        }
-
-        .letterTiles {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            border: 1px solid black;
-        }
-
-        #play_again_button {
-            color: white;
-            background-color: red;
-            visibility: hidden;
-            font-size: 4vh;
-            padding: 2vh 2vw;
-        }
-
-        #gameSetupMain #gameSettingsColumn #easyButton {
-            background-color: forestgreen;
-        }
-
-        #gameSetupMain #gameSettingsColumn #mediumButton {
-            background-color: yellow;
-            color: black; 
-        }
-
-        #gameSetupMain #gameSettingsColumn #hardButton {
-            background-color: crimson;
-        }
-    </style>
+    <link rel="stylesheet" href="../CSS/word_search_game_styling.css">
 </head>
 <body>
     <!-- Page Header - Only a Navigation Bar-->
@@ -131,13 +68,18 @@
         <div id="gameColumn">
             <div id="wordSearchBoard"></div>
         </div>
-        <div id="wordsColumn">
+        <div id="wordsColumn" class="cf">
+            <div>
+                
+            </div>
+            <div>
 
+            </div>
         </div>
     </main>
 
     <script src="../JavaScript/general_functionality.js"></script>
-    <script src="../JavaScript/game_setup_functionality.js"></script>
+    <!-- <script src="../JavaScript/game_setup_functionality.js"></script> -->
     <script src="../JavaScript/word_search_script.js"></script>
 </body>
 </html>

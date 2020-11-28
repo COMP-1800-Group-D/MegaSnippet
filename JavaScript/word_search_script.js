@@ -15,22 +15,21 @@ document.getElementById("easyButton").addEventListener('click', function (event)
     gameDefault = false;
     let gameDifficultyButtons = ["easyButton", "mediumButton", "hardButton"]
     gameDifficultyWordNumber = 8;
-    selectAButtonFromListDeselectAllOtherButtons(0, gameDifficultyButtons)
+    selectAButtonFromListDeselectAllOtherButtonsByID(0, gameDifficultyButtons)
 });
 
 document.getElementById("mediumButton").addEventListener('click', function (event) {
     gameDefault = false;
     let gameDifficultyButtons = ["easyButton", "mediumButton", "hardButton"]
     gameDifficultyWordNumber = 15;
-    selectAButtonFromListDeselectAllOtherButtons(1, gameDifficultyButtons)
+    selectAButtonFromListDeselectAllOtherButtonsByID(1, gameDifficultyButtons)
 });
 
 document.getElementById("hardButton").addEventListener('click', function (event) {
     gameDefault = false;
     let gameDifficultyButtons = ["easyButton", "mediumButton", "hardButton"]
     gameDifficultyWordNumber = 20;
-    selectAButtonFromListDeselectAllOtherButtons(2, gameDifficultyButtons)
-    console.log("test")
+    selectAButtonFromListDeselectAllOtherButtonsByID(2, gameDifficultyButtons)
 });
 
 document.getElementById("playButton").addEventListener('click', function (event) {
@@ -46,8 +45,6 @@ function addTile(tile_width, tile_height, refNumber){
     let tile = document.createElement("div");
     let tileId = "tile_" + refNumber;
     tile.setAttribute("class","letterTiles");
-    console.log(tile_width)
-    console.log(tile_height)
     tile.style.width = tile_width.toString() + "px";
     tile.style.height = tile_height.toString() + "px";
     tile.id = tileId;
@@ -75,19 +72,68 @@ function generateBoard(difficultyWordNumber){
         addTile(tile_width, tile_height, count);
     }
 
-    console.log(selectWords(difficultyWordNumber))
+    let wordList = selectWords(difficultyWordNumber)
+    let sortedWordList = sortWordsByLength(wordList);
+    postWords(sortedWordList)
 }
 
 function selectWords(numberWords){
     let selectedWords = []
     for (let i = 0; i < numberWords; i++){
-        maxWordLength = wordsArray.length; // Length 8
+        let maxWordLength = wordsArray.length; // Length 8
         if (numberWords > maxWordLength-2){
             maxWordLength -= 2;
         }
-        chooseWordLength = Math.floor(Math.random() * maxWordLength);
-        word = Math.floor(Math.random() * wordsArray[chooseWordLength].length);
-        selectedWords.push(wordsArray[chooseWordLength][word]);
+        let chooseWordLength = Math.floor(Math.random() * maxWordLength);
+        let isUnique = false;
+        let word;
+        while (!isUnique){
+            let wordIndex = Math.floor(Math.random() * wordsArray[chooseWordLength].length);
+            word = wordsArray[chooseWordLength][wordIndex];
+            isUnique = !selectedWords.includes(word);
+        }
+        selectedWords.push(word);
     }
     return selectedWords;
+}
+
+function sortWordsByLength(listOfWord){
+    let result = []
+    let unorderedList = []
+    for (let i = 0; i < listOfWord.length; i++){
+        let word = listOfWord[i];
+        let wordLength = word.length;
+        let tempList = [wordLength, word];
+        unorderedList.push(tempList);
+    }
+    let orderedList = unorderedList.sort();
+    for (let i = 0; i < orderedList.length; i++){
+        let word = orderedList[i][1];
+        result.push(word);
+    }
+    return result;
+}
+
+function postWords(listOfWord){
+    let wordColumn = document.getElementById("wordsColumn")
+    let column1 = wordColumn.querySelector("div:first-child")
+    let column2 = wordColumn.querySelector("div:last-child")
+    let midPoint = Math.ceil(listOfWord.length / 2)
+    let wordHeight = Math.floor((document.getElementById("wordSearchBoard").offsetHeight - 20) / midPoint);
+    for (let i = 0; i < midPoint; i++){
+        let wordString = listOfWord[i];
+        let word = document.createElement("p");
+        word.style.fontSize = (wordHeight * 0.72).toString() + "px"
+        let wordText = document.createTextNode(wordString);
+        word.appendChild(wordText);
+        column1.appendChild(word);
+    }
+    for (let i = midPoint; i < listOfWord.length; i++){
+        let wordString = listOfWord[i];
+        let word = document.createElement("p");
+        word.style.fontSize = (wordHeight * 0.72).toString() + "px"
+        let wordText = document.createTextNode(wordString);
+        word.appendChild(wordText);
+        column2.appendChild(word);
+    }
 }
