@@ -87,6 +87,7 @@ function generateButtons() {
 
     document.getElementById('keyboard').innerHTML = buttonsHTML; 
 }
+
 randomWord();
 generateButtons();
 document.getElementById('maxWrong').innerHTML = maxWrong; 
