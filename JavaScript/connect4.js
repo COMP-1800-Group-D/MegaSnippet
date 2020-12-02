@@ -511,6 +511,7 @@ const handleCellClick = (event) =>{
 
     openCell.classList.add('yellow');
     checkStatusOfGame(openCell)
+    if(!gameIsLive) return;
     yellowIsNext = !yellowIsNext;
     openCell = computerMove();
     checkStatusOfGame(openCell)
