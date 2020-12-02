@@ -24,7 +24,9 @@ main div {
 #leaderboardColumn {
     float: left;
     width: 75%;
-    padding: 1vh 0;
+    padding-top: 1vh;
+    padding-bottom: 1vh;
+    padding-right: 0.5vw;
     font-size: 3vh;
 }
 
