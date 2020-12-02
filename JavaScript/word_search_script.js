@@ -61,20 +61,105 @@ function generateBoard(difficultyWordNumber){
     document.getElementById("wordSearchBoard").style.alignContent = "space-evenly";
     tile_width = Math.floor((document.getElementById("wordSearchBoard").offsetWidth - 20) / difficultyWordNumber);
     tile_height = Math.floor((document.getElementById("wordSearchBoard").offsetHeight - 20) / difficultyWordNumber);
-    let columns = ""
+    let columns = "";
     for (let count = 0; count < difficultyWordNumber; count++){
-        columns += "auto "
+        columns += "auto ";
     }
-    columns = columns.slice(0, columns.length)
+    columns = columns.slice(0, columns.length);
     document.getElementById("wordSearchBoard").style.gridTemplateColumns = columns;
+
+    let wordList = selectWords(difficultyWordNumber);
+    let sortedWordList = sortWordsByLength(wordList);
+    postWords(sortedWordList);
+
+    console.log(createBoardString(difficultyWordNumber, sortedWordList));
 
     for (let count = 0; count < difficultyWordNumber**2; count++){
         addTile(tile_width, tile_height, count);
     }
+}
 
-    let wordList = selectWords(difficultyWordNumber)
-    let sortedWordList = sortWordsByLength(wordList);
-    postWords(sortedWordList)
+function createBoardString(columns, sortedWordList){
+    let wordLayoutList = [];
+    for (let i = sortedWordList.length - 1; i >= 0; i--){
+        let word = sortedWordList[i];
+        let wordTiles = getValidWordTiles(word, columns);
+        // let selectedWordTiles;
+        // let isValid = false;
+        // while (!isValid){
+        //     selectedWordTiles = wordTiles[Math.floor(Math.random() * wordTiles.length)]
+        //     isValid = true;
+        //     for (let letter = 0; letter < selectedWordTiles; letter++){
+        //         let isUnique = false;
+        //         for (let wordLayout = 0; wordLayout < wordLayoutList; wordLayout++){
+        //             isUnique = wordLayoutList[wordLayout].includes(selectedWordTiles[letter]);
+        //         }
+        //         if (isUnique.includes()){
+        //             isValid = false;
+        //         }
+        //     }
+        // }
+        let selectedWordTiles = wordTiles[Math.floor(Math.random() * wordTiles.length)];
+        wordLayoutList.push(selectedWordTiles);
+    }
+    return wordLayoutList;
+}
+
+function getValidWordTiles(word, sideLength){
+    /*
+    returns array in form: [[tile#, orientation(0 = vertical, 1 = horizantl, 2 = diagnonal down, 3 = diagonal up)], ...]
+    */
+    let result = [];
+    let wordLength = word.length;
+    // Add vertical tiles
+    for (let row = 0; row <= sideLength-wordLength; row++){
+        let tileNum = row * 8;
+        for (let column = 0; column < sideLength; column++){
+            let tempTile = [word];
+            for (let letter = 0; letter < wordLength; letter++){
+                let letterNum = tileNum + column + (letter * 8);
+                tempTile.push(letterNum);
+            }
+            result.push(tempTile);
+        }
+    }
+    // Add horizantal tiles
+    for (let row = 0; row < sideLength; row++){
+        let tileNum = row * 8;
+        for (let column = 0; column <= sideLength-wordLength; column++){
+            let tempTile = [word];
+            for (let letter = 0; letter < wordLength; letter++){
+                let letterNum = tileNum + column + letter;
+                tempTile.push(letterNum);
+            }
+            result.push(tempTile);
+        }
+    }
+    // Add diagonal down
+    for (let row = 0; row <= sideLength-wordLength; row++){
+        let tileNum = row * 8;
+        for (let column = 0; column <= sideLength-wordLength; column++){
+            let tempTile = [word];
+            for (let letter = 0; letter < wordLength; letter++){
+                let letterNum = tileNum + column + (letter * 8) + letter;
+                tempTile.push(letterNum);
+            }
+            result.push(tempTile);
+        }
+    }
+    // Add diagonal up
+    for (let row = wordLength-1; row < sideLength; row++){
+        let tileNum = row * 8;
+        for (let column = 0; column <= sideLength-wordLength; column++){
+            let tempTile = [word];
+            for (let letter = 0; letter < wordLength; letter++){
+                let letterNum = tileNum + column - (letter * 8) + letter;
+                tempTile.push(letterNum);
+            }
+            result.push(tempTile);
+        }
+    }
+    return result
 }
 
 function selectWords(numberWords){
