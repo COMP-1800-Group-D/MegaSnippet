@@ -29,10 +29,12 @@
         <h1>Tic Tac Toe Game</h1>
         <div id="buttonColumn">
             <h2>Global Vs Class Scores</h2>
-            <button id="globalButton" onclick="setGlobalOrLocalLeaderboard(0)">Global</button>
-            <button id="classButton" onclick="setGlobalOrLocalLeaderboard(1)">Class</button>
+            <ul class="twoButtonsPerLine">
+                <li><button id="globalButton" onclick="setGlobalOrLocalLeaderboard(0)">Global</button></li>
+                <li><button id="classButton" onclick="setGlobalOrLocalLeaderboard(1)">Class</button></li>
+            </ul>
             <h2>Overall Vs Game Scores</h2>
-            <ul>
+            <ul class="oneButtonPerLine">
                 <li><button id="overallButton" onclick="getLeaderboard(0)">Overall Score</button></li>
                 <li><button id="ticTacToeButton" onclick="getLeaderboard(1)">Tic Tac Toe Score</button></li>
                 <li><button id="hangmanButton" onclick="getLeaderboard(2)">Hangman Score</button></li>

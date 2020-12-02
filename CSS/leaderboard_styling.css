@@ -51,20 +51,16 @@ main div {
     padding: 0;
 }
 
-#buttonColumn li button {
+#buttonColumn .oneButtonPerLine li button {
     width: 90%;
 }
 
-#buttonColumn > button {
+#buttonColumn .twoButtonsPerLine li {
+    display: inline;
+}
+
+#buttonColumn .twoButtonsPerLine li button {
     width: 44%;
-}
-
-#buttonColumn #globalButton {
-    background-color: lavender;
-}
-
-#buttonColumn #overallButton {
-    background-color: lavender;
 }
 
 main table {
