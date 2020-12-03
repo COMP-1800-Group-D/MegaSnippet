@@ -82,7 +82,7 @@ main td, main th {
 
 .profile {
     width: 50%;
-    text-align: left; 
+    text-align: left;
 }
 
 main th{
@@ -94,9 +94,14 @@ main th{
     vertical-align: middle;
 }
 
+.profile span {
+    font-size: 2vh;
+}
+
 .profile .profilePicture {
     height: 4.5vh;
     width: 4.5vh;
+    border-radius: 50%;
 }
 
 .score {
