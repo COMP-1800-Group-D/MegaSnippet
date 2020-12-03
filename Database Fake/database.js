@@ -162,7 +162,7 @@ let user1 = new User(
     },
     friends = [],
     achievement = [],
-    titles = ["Emperor / Empress of MegaSnippet"],
+    titles = ["Emperor / Empress of MegaSnippet", "King / Queen of MegaSnippet"],
     setTitle = "Emperor / Empress of MegaSnippet",
     servers = []
     )
@@ -375,15 +375,15 @@ let user12 = new User(
     gameScores = {
         ticTacToe: 100, 
         hangman: 900, 
-        sudoku: 0, 
+        sudoku: 2000, 
         connect4: 0, 
         rps: 0, 
         wordSearch: 0
     },
     friends = [],
     achievement = [],
-    titles = [],
-    setTitle = "",
+    titles = ["God of Sodoku", "King of Soduku"],
+    setTitle = "God of Sodoku",
     servers = []
     )
 
