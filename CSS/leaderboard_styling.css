@@ -98,10 +98,14 @@ main th{
     font-size: 2vh;
 }
 
-.profile .profilePicture {
+.profile img {
     height: 4.5vh;
     width: 4.5vh;
     border-radius: 50%;
+}
+
+#topLeaderboardMarker {
+    float: right;
 }
 
 .score {
