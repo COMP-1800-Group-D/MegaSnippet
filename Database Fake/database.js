@@ -15,10 +15,10 @@ class User {
         }
 
         if (src == undefined || src == null){
-            this.src = "#";
+            this.profileImageSrc = "#";
         }
         else {
-            this.src = src;
+            this.profileImageSrc = src;
         }
 
         if (gameScores == undefined || gameScores == null){
@@ -137,7 +137,7 @@ class User {
         console.log(this.username)
         console.log(this.password)
         console.log(this.className)
-        console.log(this.src)
+        console.log(this.profileImageSrc)
         console.log(this.gameScores)
         console.log(this.friends)
         console.log(this.achievements)
@@ -148,30 +148,30 @@ class User {
 }
 
 let user1 = new User(
-    username = "Tman", 
+    username = "User1", 
     password = "12345",
     className = "CST1E", 
-    src = null,
+    src = "./Images/userProfileImages/profileImage1.jpg",
     gameScores = {
-        ticTacToe: 100, 
-        hangman: 900, 
-        sudoku: 0, 
-        connect4: 0, 
-        rps: 0, 
-        wordSearch: 0
+        ticTacToe: 1000, 
+        hangman: 1000, 
+        sudoku: 1000, 
+        connect4: 1000, 
+        rps: 1000, 
+        wordSearch: 1000
     },
     friends = [],
     achievement = [],
-    titles = [],
-    setTitle = "",
+    titles = ["Emperor / Empress of MegaSnippet"],
+    setTitle = "Emperor / Empress of MegaSnippet",
     servers = []
     )
 
 let user2 = new User(
-    username = "Tman", 
+    username = "User2", 
     password = "12345",
     className = "CST1E", 
-    src = null,
+    src = "./Images/userProfileImages/profileImage2.jpg",
     gameScores = {
         ticTacToe: 100, 
         hangman: 900, 
@@ -188,10 +188,10 @@ let user2 = new User(
     )
 
 let user3 = new User(
-    username = "Tman", 
+    username = "User3", 
     password = "12345",
     className = "CST1E", 
-    src = null,
+    src = "./Images/userProfileImages/profileImage3.jpg",
     gameScores = {
         ticTacToe: 100, 
         hangman: 900, 
@@ -208,10 +208,10 @@ let user3 = new User(
     )
 
 let user4 = new User(
-    username = "Tman", 
+    username = "User4", 
     password = "12345",
     className = "CST1E", 
-    src = null,
+    src = "./Images/userProfileImages/profileImage4.jpg",
     gameScores = {
         ticTacToe: 100, 
         hangman: 900, 
@@ -228,10 +228,10 @@ let user4 = new User(
     )
 
 let user5 = new User(
-    username = "Tman", 
+    username = "User5", 
     password = "12345",
     className = "CST1E", 
-    src = null,
+    src = "./Images/userProfileImages/profileImage5.jpg",
     gameScores = {
         ticTacToe: 100, 
         hangman: 900, 
@@ -248,10 +248,10 @@ let user5 = new User(
     )
 
 let user6 = new User(
-    username = "Tman", 
+    username = "User6", 
     password = "12345",
     className = "CST1E", 
-    src = null,
+    src = "./Images/userProfileImages/profileImage6.jpg",
     gameScores = {
         ticTacToe: 100, 
         hangman: 900, 
@@ -268,10 +268,10 @@ let user6 = new User(
     )
 
 let user7 = new User(
-    username = "Tman", 
+    username = "User7", 
     password = "12345",
     className = "CST1E", 
-    src = null,
+    src = "./Images/userProfileImages/profileImage7.jpg",
     gameScores = {
         ticTacToe: 100, 
         hangman: 900, 
@@ -288,10 +288,10 @@ let user7 = new User(
     )
 
 let user8 = new User(
-    username = "Tman", 
+    username = "User8", 
     password = "12345",
     className = "CST1E", 
-    src = null,
+    src = "./Images/userProfileImages/profileImage8.jpg",
     gameScores = {
         ticTacToe: 100, 
         hangman: 900, 
@@ -308,10 +308,10 @@ let user8 = new User(
     )
 
 let user9 = new User(
-    username = "Tman", 
+    username = "User9", 
     password = "12345",
     className = "CST1E", 
-    src = null,
+    src = "./Images/userProfileImages/profileImage9.jpg",
     gameScores = {
         ticTacToe: 100, 
         hangman: 900, 
@@ -328,10 +328,10 @@ let user9 = new User(
     )
 
 let user10 = new User(
-    username = "Tman", 
+    username = "User10", 
     password = "12345",
     className = "CST1E", 
-    src = null,
+    src = "./Images/userProfileImages/profileImage10.jpg",
     gameScores = {
         ticTacToe: 100, 
         hangman: 900, 
@@ -348,10 +348,10 @@ let user10 = new User(
     )
 
 let user11 = new User(
-    username = "Tman", 
+    username = "User11", 
     password = "12345",
-    className = "CST1E", 
-    src = null,
+    className = "CST1F", 
+    src = "./Images/userProfileImages/profileImage11.jpg",
     gameScores = {
         ticTacToe: 100, 
         hangman: 900, 
@@ -368,10 +368,10 @@ let user11 = new User(
     )
 
 let user12 = new User(
-    username = "Tman", 
+    username = "User12", 
     password = "12345",
-    className = "CST1E", 
-    src = null,
+    className = "CST1F", 
+    src = "./Images/userProfileImages/profileImage12.png",
     gameScores = {
         ticTacToe: 100, 
         hangman: 900, 
@@ -388,10 +388,10 @@ let user12 = new User(
     )
 
 let user13 = new User(
-    username = "Tman", 
+    username = "User13", 
     password = "12345",
-    className = "CST1E", 
-    src = null,
+    className = "CST1F", 
+    src = "./Images/userProfileImages/profileImage13.jpg",
     gameScores = {
         ticTacToe: 100, 
         hangman: 900, 
@@ -408,10 +408,10 @@ let user13 = new User(
     )
 
 let user14 = new User(
-    username = "Tman", 
+    username = "User14", 
     password = "12345",
-    className = "CST1E", 
-    src = null,
+    className = "CST1F", 
+    src = "./Images/userProfileImages/profileImage14.png",
     gameScores = {
         ticTacToe: 100, 
         hangman: 900, 
@@ -428,10 +428,10 @@ let user14 = new User(
     )
 
 let user15 = new User(
-    username = "Tman", 
+    username = "User15", 
     password = "12345",
-    className = "CST1E", 
-    src = null,
+    className = "CST1F", 
+    src = "./Images/userProfileImages/profileImage15.png",
     gameScores = {
         ticTacToe: 100, 
         hangman: 900, 
@@ -448,10 +448,10 @@ let user15 = new User(
     )
 
 let user16 = new User(
-    username = "Tman", 
+    username = "User16", 
     password = "12345",
-    className = "CST1E", 
-    src = null,
+    className = "CST1F", 
+    src = "./Images/userProfileImages/profileImage16.png",
     gameScores = {
         ticTacToe: 100, 
         hangman: 900, 
@@ -468,10 +468,10 @@ let user16 = new User(
     )
 
 let user17 = new User(
-    username = "Tman", 
+    username = "User17", 
     password = "12345",
-    className = "CST1E", 
-    src = null,
+    className = "CST1F", 
+    src = "./Images/userProfileImages/profileImage17.png",
     gameScores = {
         ticTacToe: 100, 
         hangman: 900, 
@@ -488,10 +488,10 @@ let user17 = new User(
     )
 
 let user18 = new User(
-    username = "Tman", 
+    username = "User18", 
     password = "12345",
-    className = "CST1E", 
-    src = null,
+    className = "CST1F", 
+    src = "./Images/userProfileImages/profileImage18.jpg",
     gameScores = {
         ticTacToe: 100, 
         hangman: 900, 
@@ -508,13 +508,13 @@ let user18 = new User(
     )
 
 let user19 = new User(
-    username = "Tman", 
+    username = "User19", 
     password = "12345",
-    className = "CST1E", 
-    src = null,
+    className = "CST1F", 
+    src = "./Images/userProfileImages/profileImage19.jpg",
     gameScores = {
         ticTacToe: 100, 
-        hangman: 900, 
+        hangman: 100, 
         sudoku: 0, 
         connect4: 0, 
         rps: 0, 
@@ -528,10 +528,10 @@ let user19 = new User(
     )
 
 let user20 = new User(
-    username = "Tman", 
+    username = "User20", 
     password = "12345",
-    className = "CST1E", 
-    src = null,
+    className = "CST1F", 
+    src = "./Images/userProfileImages/profileImage20.jpg",
     gameScores = {
         ticTacToe: 100, 
         hangman: 900, 
@@ -548,4 +548,5 @@ let user20 = new User(
     )
 
 let users = [user1, user2, user3, user4, user5, user6, user7, user8, user9, user10,
-user11, user12, user13, user14, user15, user16, user17, user18, user19, user20]
+user11, user12, user13, user14, user15, user16, user17, user18, user19, user20];
+let targetClassName = "CST1E";
