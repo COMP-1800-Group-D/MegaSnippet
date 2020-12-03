@@ -20,6 +20,7 @@ document.getElementById("globalButton").addEventListener('click', function (even
 
     let userList = getTop10UsersBy(users, gameLeaderboard, isGlobal, targetClassName);
     displayLeaderboard(userList, gameLeaderboard);
+    displayPageTitle(gameLeaderboard, isGlobal, targetClassName);
 });
 
 document.getElementById("classButton").addEventListener('click', function (event){
@@ -29,6 +30,7 @@ document.getElementById("classButton").addEventListener('click', function (event
 
     let userList = getTop10UsersBy(users, gameLeaderboard, isGlobal, targetClassName);
     displayLeaderboard(userList, gameLeaderboard);
+    displayPageTitle(gameLeaderboard, isGlobal, targetClassName);
 });
 
 document.getElementById("overallButton").addEventListener('click', function (event){
@@ -38,6 +40,7 @@ document.getElementById("overallButton").addEventListener('click', function (eve
 
     let userList = getTop10UsersBy(users, gameLeaderboard, isGlobal, targetClassName);
     displayLeaderboard(userList, gameLeaderboard);
+    displayPageTitle(gameLeaderboard, isGlobal, targetClassName);
 });
 
 document.getElementById("ticTacToeButton").addEventListener('click', function (event){
@@ -47,6 +50,7 @@ document.getElementById("ticTacToeButton").addEventListener('click', function (e
 
     let userList = getTop10UsersBy(users, gameLeaderboard, isGlobal, targetClassName);
     displayLeaderboard(userList, gameLeaderboard);
+    displayPageTitle(gameLeaderboard, isGlobal, targetClassName);
 });
 
 document.getElementById("hangmanButton").addEventListener('click', function (event){
@@ -56,6 +60,7 @@ document.getElementById("hangmanButton").addEventListener('click', function (eve
 
     let userList = getTop10UsersBy(users, gameLeaderboard, isGlobal, targetClassName);
     displayLeaderboard(userList, gameLeaderboard);
+    displayPageTitle(gameLeaderboard, isGlobal, targetClassName);
 });
 
 document.getElementById("sudokuButton").addEventListener('click', function (event){
@@ -65,6 +70,7 @@ document.getElementById("sudokuButton").addEventListener('click', function (even
 
     let userList = getTop10UsersBy(users, gameLeaderboard, isGlobal, targetClassName);
     displayLeaderboard(userList, gameLeaderboard);
+    displayPageTitle(gameLeaderboard, isGlobal, targetClassName);
 });
 
 document.getElementById("connect4Button").addEventListener('click', function (event){
@@ -74,6 +80,7 @@ document.getElementById("connect4Button").addEventListener('click', function (ev
 
     let userList = getTop10UsersBy(users, gameLeaderboard, isGlobal, targetClassName);
     displayLeaderboard(userList, gameLeaderboard);
+    displayPageTitle(gameLeaderboard, isGlobal, targetClassName);
 });
 
 document.getElementById("rpsButton").addEventListener('click', function (event){
@@ -83,6 +90,7 @@ document.getElementById("rpsButton").addEventListener('click', function (event){
 
     let userList = getTop10UsersBy(users, gameLeaderboard, isGlobal, targetClassName);
     displayLeaderboard(userList, gameLeaderboard);
+    displayPageTitle(gameLeaderboard, isGlobal, targetClassName);
 });
 
 document.getElementById("wordSearchButton").addEventListener('click', function (event){
@@ -92,6 +100,7 @@ document.getElementById("wordSearchButton").addEventListener('click', function (
 
     let userList = getTop10UsersBy(users, gameLeaderboard, isGlobal, targetClassName);
     displayLeaderboard(userList, gameLeaderboard);
+    displayPageTitle(gameLeaderboard, isGlobal, targetClassName);
 });
 
 function displayLeaderboard(userList, game){
@@ -170,6 +179,22 @@ function getTop10UsersBy(listOfUsers, game, isGlobalLeaderboard, targetClass){
     return outputList;
 }
 
+function displayPageTitle(game, isGlobalLeaderboard, userClass){
+    let pageTitle = document.querySelector("h1");
+    let globalStr = (isGlobalLeaderboard) ? "Global":"Class " + userClass;
+    let gameStr = "";
+    if (game == 'overall'){ gameStr = "Overall"; }
+    else if (game == 'ticTacToe'){ gameStr = "Tic Tac Toe"; }
+    else if (game == 'hangman'){ gameStr = "Hangman"; }
+    else if (game == 'sudoku'){ gameStr = "Sudoku"; }
+    else if (game == 'connect4'){ gameStr = "Connect 4"; }
+    else if (game == 'rps'){ gameStr = "Rock-Paper-Scissors"; }
+    else if (game == 'wordSearch'){ gameStr = "Word Search"; }
+    let titleStr = globalStr + " " + gameStr + " Leaderboard";
+    pageTitle.textContent = titleStr;
+}
+
+// Initial Page Setup upon load
 let globalButton = document.getElementById("globalButton");
 selectAButton(globalButton);
 let overallButton = document.getElementById("overallButton");
@@ -177,3 +202,4 @@ selectAButton(overallButton);
 
 let userList = getTop10UsersBy(users, gameLeaderboard, isGlobal);
 displayLeaderboard(userList, gameLeaderboard);
+displayPageTitle(gameLeaderboard, isGlobal, targetClassName);
