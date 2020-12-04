@@ -49,3 +49,7 @@ header ul .profile-picture {
     height: 5vh;
     margin-left: 0.5vw;
 }
+
+.profile-picture {
+    border-radius: 50%;
+}
