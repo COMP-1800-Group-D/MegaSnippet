@@ -30,3 +30,7 @@ main {
 main > a img {
     height: 33vh;
 }
+
+header .profile-picture {
+    border-radius: 50%;
+}
