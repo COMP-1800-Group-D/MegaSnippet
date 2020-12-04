@@ -6,6 +6,7 @@
     <title>MEGASNIPPET-Events</title>
     <link rel="stylesheet" href="./CSS/general_page_styling.css">
     <link rel="stylesheet" href="./CSS/general_page_header_styling.css">
+    <link rel="stylesheet" href="./CSS/Event.css">
     <style>
         main {
             display: grid;
@@ -56,8 +57,22 @@
             <a class="disabled" href="#"><img class="profile-picture" src="./Images/profile_image_default.png" alt="Profile Image Default" /></a>
         </ul>
     </header>
-    <main>
-        
-    </main>
+    <button id="addEvent">Add event +</button>
+    <div id="overlay">
+        <section id="section">
+            <button id="cancel">X</button>
+            <h1>Create an event</h1>
+            <form>
+                <label>Name</label>
+                <input type="text" name="eventname" id="name" required> <br> <br>
+                <label>Date</label>
+                <input type="datetime-local" name="date" id="date" required> <br> <br>
+                <label>Choose a Color</label>
+                <input type="color" name="color" id='color' required> <br> <br>
+                <input type="submit" name="submit" id="submit" value="Confirm">
+            </form>
+        </section>
+    </div>
+    <script src="./JavaScript/Events.js"></script>
 </body>
 </html>

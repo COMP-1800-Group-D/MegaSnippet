@@ -6,103 +6,10 @@
     <title>MEGASNIPPET-Leaderboard</title>
     <link rel="stylesheet" href="./CSS/general_page_styling.css">
     <link rel="stylesheet" href="./CSS/general_page_header_styling.css">
-    <style>
-        main h1 {
-            text-align: center;
-            font-size: 6vh;
-            margin-top: 4vh;
-            margin-bottom: 2vh;
-        }
-
-        #buttonColumn {
-            float: left;
-            width: 25%;
-            text-align: center;
-            padding: 1vh 0;
-        }
-
-        #leaderboardColumn {
-            float: left;
-            width: 75%;
-            padding: 1vh 0;
-            font-size: 3vh;
-        }
-
-        #buttonColumn button {
-            font-size: 3vh;
-            padding: 1.3vh 1vw;
-            border-radius: 4px;
-            margin-bottom: 0.5vh;
-            background-color: whitesmoke;
-        }
-
-        #buttonColumn button:hover {
-            cursor: pointer;
-        }
-
-        #buttonColumn ul {
-            margin: 0;
-            padding: 0;
-        }
-
-        #buttonColumn ul li {
-            list-style-type: none;
-            margin: 0;
-            padding: 0;
-        }
-
-        #buttonColumn li button {
-            width: 90%;
-        }
-
-        #buttonColumn > button {
-            width: 44%;
-        }
-
-        #buttonColumn #globalButton {
-            background-color: lavender;
-        }
-
-        #buttonColumn #overallButton {
-            background-color: lavender;
-        }
-
-        main table {
-            width: 100%;
-            border-collapse: collapse;
-            text-align: center;
-        }
-
-        main td, main th {
-            border: 2px solid black;
-            padding: 1vh 1vh;
-        }
-
-        .rank {
-            width: 20%;
-        }
-
-        .profile {
-            width: 50%;
-            text-align: left; 
-        }
-        
-        main th{
-            text-align: center !important; 
-        }
-
-        .profile img, .profile p {
-            display: inline;
-            vertical-align: middle;
-        }
-
-        .score {
-            width: 30%;
-        }
-
-    </style>
+    <link rel="stylesheet" href="./CSS/leaderboard_styling.css">
 </head>
 <body>
+    <!-- Page Header - Only a Navigation Bar -->
     <header class="cf">
         <h3>Mega<span>Snippet</span> - Leaderboard</h3>
         <ul>
@@ -116,25 +23,25 @@
             <a class="disabled" href="#"><img class="profile-picture" src="./Images/profile_image_default.png" alt="Profile Image Default" /></a>
         </ul>
     </header>
+
+    <!-- The main page content -->
     <main>
         <h1>Tic Tac Toe Game</h1>
         <div id="buttonColumn">
-            <button id="globalButton" onclick="setGlobalOrLocalLeaderboard(0)">Global</button>
-            <button id="classButton" onclick="setGlobalOrLocalLeaderboard(1)">Class</button>
-            <ul>
-                <li><button id="overallButton" onclick="getLeaderboard(0)">Overall Score</button></li>
-                <li><button id="ticTacToeButton" onclick="getLeaderboard(1)">Tic Tac Toe Score</button></li>
-                <li><button id="hangmanButton" onclick="getLeaderboard(2)">Hangman Score</button></li>
-                <li><button id="sudokuButton" onclick="getLeaderboard(3)">Sudoku Score</button></li>
-                <li><button id="connect4Button" onclick="getLeaderboard(4)">Connect 4 Score</button></li>
-                <li><button id="rpsButton" onclick="getLeaderboard(5)">Rock-Paper-Scissors Score</button></li>
-                <li><button id="pokerButton" onclick="getLeaderboard(6)">Poker Score</button></li>
-                <li><button id="blackjackButton" onclick="getLeaderboard(7)">Blackjack Score</button></li>
-                <li><button id="wordSearchButton" onclick="getLeaderboard(8)">Word Search Score</button></li>
-                <li><button id="snakeButton" onclick="getLeaderboard(9)">Snake Score</button></li>
-                <li><button id="pacmanButton" onclick="getLeaderboard(10)">Pacman Score</button></li>
-                <li><button id="froggerButton" onclick="getLeaderboard(11)">Frogger Score</button></li>
-                <li><button id="cookieClickerButton" onclick="getLeaderboard(12)">Cookie Clicker Score</button></li>
+            <h2>Global Vs Class Scores</h2>
+            <ul class="twoButtonsPerLine">
+                <li><button id="globalButton">Global</button></li>
+                <li><button id="classButton">Class</button></li>
+            </ul>
+            <h2>Overall Vs Game Scores</h2>
+            <ul class="oneButtonPerLine">
+                <li><button id="overallButton">Overall Score</button></li>
+                <li><button id="ticTacToeButton">Tic Tac Toe Score</button></li>
+                <li><button id="hangmanButton">Hangman Score</button></li>
+                <li><button id="sudokuButton">Sudoku Score</button></li>
+                <li><button id="connect4Button">Connect 4 Score</button></li>
+                <li><button id="rpsButton">Rock-Paper-Scissors Score</button></li>
+                <li><button id="wordSearchButton">Word Search Score</button></li>
             </ul>
         </div>
         <div id="leaderboardColumn">
@@ -149,6 +56,7 @@
                     <td class="profile">
                         <img class="profilePicture" src="./Images/profile_image_default.png" alt="Profile Image Default" />
                         <p class="profileName">User00000001</p>
+                        <img id="topLeaderboardMarker" src="./Images/King.jpg" alt="Top Scorer" />
                     </td>
                     <td class="score">0</td>
                 </tr>
@@ -227,42 +135,7 @@
             </table>
         </div>
     </main>
-    <script>
-        let isGlobalLeaderboard = true;
-        let currentLeaderboard = 0
-        possibleLeaderboards = ["overallButton", "ticTacToeButton", "hangmanButton", "sudokuButton", "connect4Button", "rpsButton", "pokerButton", 
-        "blackjackButton", "wordSearchButton", "snakeButton", "pacmanButton", "froggerButton", "cookieClickerButton"]
-        
-        function setGlobalOrLocalLeaderboard(buttonID){
-            let buttonReference = ["globalButton", "classButton"]
-            if (isGlobalLeaderboard && buttonID == 1){
-                document.getElementById(buttonReference[0]).style.backgroundColor = "whiteSmoke";
-                document.getElementById(buttonReference[1]).style.backgroundColor = "lavender";
-                isGlobalLeaderboard = false;
-            }
-            else{
-                document.getElementById(buttonReference[0]).style.backgroundColor = "lavender";
-                document.getElementById(buttonReference[1]).style.backgroundColor = "whiteSmoke";
-                isGlobalLeaderboard = true;
-            }
-        }
-
-        function getLeaderboard(leaderboardReference){
-            if (isGlobalLeaderboard){
-                if (currentLeaderboard != leaderboardReference){
-                    document.getElementById(possibleLeaderboards[leaderboardReference]).style.backgroundColor = "lavender";
-                    document.getElementById(possibleLeaderboards[currentLeaderboard]).style.backgroundColor = "whiteSmoke";
-                    currentLeaderboard = leaderboardReference;
-                }
-            }
-            else{
-                if (currentLeaderboard != leaderboardReference){
-                    document.getElementById(possibleLeaderboards[leaderboardReference]).style.backgroundColor = "lavender";
-                    document.getElementById(possibleLeaderboards[currentLeaderboard]).style.backgroundColor = "whiteSmoke";
-                    currentLeaderboard = leaderboardReference;
-                }
-            }
-        }
-    </script>
+    <script src="./Database Fake/database.js"></script>
+    <script src="./JavaScript/leaderboard_functionality.js"></script>
 </body>
 </html>
