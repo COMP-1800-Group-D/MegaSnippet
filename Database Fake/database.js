@@ -148,15 +148,15 @@ class User {
 }
 
 let user1 = new User(
-    username = "User1", 
+    username = "Legend", 
     password = "12345",
     className = "CST1E", 
     src = "./Images/userProfileImages/profileImage1.jpg",
     gameScores = {
-        ticTacToe: 1000, 
-        hangman: 1000, 
-        sudoku: 1000, 
-        connect4: 1000, 
+        ticTacToe: 2000, 
+        hangman: 2000, 
+        sudoku: 2000, 
+        connect4: 2000, 
         rps: 1000, 
         wordSearch: 1000
     },
@@ -168,97 +168,97 @@ let user1 = new User(
     )
 
 let user2 = new User(
-    username = "User2", 
+    username = "Carlie", 
     password = "12345",
     className = "CST1E", 
     src = "./Images/userProfileImages/profileImage2.jpg",
     gameScores = {
         ticTacToe: 100, 
         hangman: 900, 
-        sudoku: 0, 
-        connect4: 0, 
-        rps: 0, 
-        wordSearch: 0
+        sudoku: 3000, 
+        connect4: 400, 
+        rps: 400, 
+        wordSearch: 3000
     },
     friends = [],
     achievement = [],
-    titles = [],
-    setTitle = "",
+    titles = ['Puzzle Master'],
+    setTitle = "Puzzle Master",
     servers = []
     )
 
 let user3 = new User(
-    username = "User3", 
+    username = "Prajvirdeep", 
     password = "12345",
     className = "CST1E", 
     src = "./Images/userProfileImages/profileImage3.jpg",
     gameScores = {
         ticTacToe: 100, 
         hangman: 900, 
-        sudoku: 0, 
-        connect4: 0, 
-        rps: 0, 
-        wordSearch: 0
+        sudoku: 800, 
+        connect4: 500, 
+        rps: 4000, 
+        wordSearch: 300
     },
     friends = [],
     achievement = [],
-    titles = [],
-    setTitle = "",
+    titles = ['Luck Blessed'],
+    setTitle = "Luck Blessed",
     servers = []
     )
 
 let user4 = new User(
-    username = "User4", 
+    username = "Mochizuki", 
     password = "12345",
     className = "CST1E", 
     src = "./Images/userProfileImages/profileImage4.jpg",
     gameScores = {
         ticTacToe: 100, 
         hangman: 900, 
-        sudoku: 0, 
-        connect4: 0, 
-        rps: 0, 
-        wordSearch: 0
+        sudoku: 500, 
+        connect4: 4000, 
+        rps: 200, 
+        wordSearch: 1000
     },
     friends = [],
     achievement = [],
-    titles = [],
-    setTitle = "",
+    titles = ['Connection Maker'],
+    setTitle = "Connection Maker",
     servers = []
     )
 
 let user5 = new User(
-    username = "User5", 
+    username = "Ralph", 
     password = "12345",
     className = "CST1E", 
     src = "./Images/userProfileImages/profileImage5.jpg",
     gameScores = {
-        ticTacToe: 100, 
+        ticTacToe: 4000, 
         hangman: 900, 
-        sudoku: 0, 
-        connect4: 0, 
-        rps: 0, 
-        wordSearch: 0
+        sudoku: 500, 
+        connect4: 600, 
+        rps: 600, 
+        wordSearch: 500
     },
     friends = [],
     achievement = [],
-    titles = [],
-    setTitle = "",
+    titles = ['Tic-Tac Champion'],
+    setTitle = "Tic-Tac Champion",
     servers = []
     )
 
 let user6 = new User(
-    username = "User6", 
+    username = "Dark_phantom5", 
     password = "12345",
     className = "CST1E", 
     src = "./Images/userProfileImages/profileImage6.jpg",
     gameScores = {
         ticTacToe: 100, 
         hangman: 900, 
-        sudoku: 0, 
-        connect4: 0, 
-        rps: 0, 
-        wordSearch: 0
+        sudoku: 400, 
+        connect4: 100, 
+        rps: 200, 
+        wordSearch: 100
     },
     friends = [],
     achievement = [],
@@ -268,57 +268,57 @@ let user6 = new User(
     )
 
 let user7 = new User(
-    username = "User7", 
+    username = "Liliana", 
     password = "12345",
     className = "CST1E", 
     src = "./Images/userProfileImages/profileImage7.jpg",
     gameScores = {
         ticTacToe: 100, 
         hangman: 900, 
-        sudoku: 0, 
-        connect4: 0, 
-        rps: 0, 
-        wordSearch: 0
+        sudoku: 800, 
+        connect4: 400, 
+        rps: 600, 
+        wordSearch: 200
     },
     friends = [],
     achievement = [],
-    titles = [],
-    setTitle = "",
+    titles = ['Friend Maker'],
+    setTitle = "Friend Maker",
     servers = []
     )
 
 let user8 = new User(
-    username = "User8", 
+    username = "Harry", 
     password = "12345",
     className = "CST1E", 
     src = "./Images/userProfileImages/profileImage8.jpg",
     gameScores = {
-        ticTacToe: 100, 
-        hangman: 900, 
-        sudoku: 0, 
-        connect4: 0, 
-        rps: 0, 
-        wordSearch: 0
+        ticTacToe: 500, 
+        hangman: 600, 
+        sudoku: 2000, 
+        connect4: 500, 
+        rps: 600, 
+        wordSearch: 5000
     },
     friends = [],
     achievement = [],
-    titles = [],
-    setTitle = "",
+    titles = ['King of Word Search'],
+    setTitle = "King of Word Search",
     servers = []
     )
 
 let user9 = new User(
-    username = "User9", 
+    username = "Yeet", 
     password = "12345",
     className = "CST1E", 
     src = "./Images/userProfileImages/profileImage9.jpg",
     gameScores = {
         ticTacToe: 100, 
         hangman: 900, 
-        sudoku: 0, 
-        connect4: 0, 
-        rps: 0, 
-        wordSearch: 0
+        sudoku: 400, 
+        connect4: 500, 
+        rps: 300, 
+        wordSearch: 500
     },
     friends = [],
     achievement = [],
@@ -328,17 +328,17 @@ let user9 = new User(
     )
 
 let user10 = new User(
-    username = "User10", 
+    username = "Aero", 
     password = "12345",
     className = "CST1E", 
     src = "./Images/userProfileImages/profileImage10.jpg",
     gameScores = {
-        ticTacToe: 100, 
-        hangman: 900, 
-        sudoku: 0, 
-        connect4: 0, 
-        rps: 0, 
-        wordSearch: 0
+        ticTacToe: 1400, 
+        hangman: 1200, 
+        sudoku: 400, 
+        connect4: 700, 
+        rps: 100, 
+        wordSearch: 100
     },
     friends = [],
     achievement = [],
@@ -348,37 +348,37 @@ let user10 = new User(
     )
 
 let user11 = new User(
-    username = "User11", 
+    username = "DeVante", 
     password = "12345",
     className = "CST1F", 
     src = "./Images/userProfileImages/profileImage11.jpg",
     gameScores = {
         ticTacToe: 100, 
         hangman: 900, 
-        sudoku: 0, 
-        connect4: 0, 
-        rps: 0, 
-        wordSearch: 0
+        sudoku: 700, 
+        connect4: 900, 
+        rps: 1200, 
+        wordSearch: 1000
     },
     friends = [],
     achievement = [],
-    titles = [],
-    setTitle = "",
+    titles = ['Friend Maker'],
+    setTitle = "Friend Maker",
     servers = []
     )
 
 let user12 = new User(
-    username = "User12", 
+    username = "Randy", 
     password = "12345",
     className = "CST1F", 
     src = "./Images/userProfileImages/profileImage12.png",
     gameScores = {
         ticTacToe: 100, 
         hangman: 900, 
-        sudoku: 2000, 
-        connect4: 0, 
-        rps: 0, 
-        wordSearch: 0
+        sudoku: 6000, 
+        connect4: 100, 
+        rps: 400, 
+        wordSearch: 100
     },
     friends = [],
     achievement = [],
@@ -388,157 +388,157 @@ let user12 = new User(
     )
 
 let user13 = new User(
-    username = "User13", 
+    username = "Dregon", 
     password = "12345",
     className = "CST1F", 
     src = "./Images/userProfileImages/profileImage13.jpg",
     gameScores = {
         ticTacToe: 100, 
         hangman: 900, 
-        sudoku: 0, 
-        connect4: 0, 
-        rps: 0, 
-        wordSearch: 0
+        sudoku: 800, 
+        connect4: 1000, 
+        rps: 3000, 
+        wordSearch: 200
     },
     friends = [],
     achievement = [],
-    titles = [],
-    setTitle = "",
+    titles = ['Rock-Paper-Scissors Master'],
+    setTitle = "Rock-Paper-Scissors Master",
     servers = []
     )
 
 let user14 = new User(
-    username = "User14", 
+    username = "Kidd", 
     password = "12345",
     className = "CST1F", 
     src = "./Images/userProfileImages/profileImage14.png",
     gameScores = {
-        ticTacToe: 100, 
-        hangman: 900, 
-        sudoku: 0, 
-        connect4: 0, 
-        rps: 0, 
-        wordSearch: 0
+        ticTacToe: 1500, 
+        hangman: 1500, 
+        sudoku: 1500, 
+        connect4: 1500, 
+        rps: 1500, 
+        wordSearch: 1500
     },
     friends = [],
     achievement = [],
-    titles = [],
-    setTitle = "",
+    titles = ['King / Queen of their Class'],
+    setTitle = "King / Queen of their Class",
     servers = []
     )
 
 let user15 = new User(
-    username = "User15", 
+    username = "IronMAN77", 
     password = "12345",
     className = "CST1F", 
     src = "./Images/userProfileImages/profileImage15.png",
     gameScores = {
         ticTacToe: 100, 
         hangman: 900, 
-        sudoku: 0, 
-        connect4: 0, 
-        rps: 0, 
-        wordSearch: 0
+        sudoku: 700, 
+        connect4: 700, 
+        rps: 700, 
+        wordSearch: 300
     },
     friends = [],
     achievement = [],
-    titles = [],
-    setTitle = "",
+    titles = ['Friend Maker'],
+    setTitle = "Friend Maker",
     servers = []
     )
 
 let user16 = new User(
-    username = "User16", 
+    username = "Sega", 
     password = "12345",
     className = "CST1F", 
     src = "./Images/userProfileImages/profileImage16.png",
     gameScores = {
         ticTacToe: 100, 
-        hangman: 900, 
-        sudoku: 0, 
-        connect4: 0, 
-        rps: 0, 
-        wordSearch: 0
+        hangman: 100, 
+        sudoku: 900, 
+        connect4: 300, 
+        rps: 300, 
+        wordSearch: 4000
     },
     friends = [],
     achievement = [],
-    titles = [],
-    setTitle = "",
+    titles = ['Word Lover'],
+    setTitle = "Word Lover",
     servers = []
     )
 
 let user17 = new User(
-    username = "User17", 
+    username = "RobbinGamer", 
     password = "12345",
     className = "CST1F", 
     src = "./Images/userProfileImages/profileImage17.png",
     gameScores = {
         ticTacToe: 100, 
         hangman: 900, 
-        sudoku: 0, 
-        connect4: 0, 
-        rps: 0, 
-        wordSearch: 0
+        sudoku: 500, 
+        connect4: 400, 
+        rps: 300, 
+        wordSearch: 1000
     },
     friends = [],
     achievement = [],
-    titles = [],
-    setTitle = "",
+    titles = ['Joker'],
+    setTitle = "Joker",
     servers = []
     )
 
 let user18 = new User(
-    username = "User18", 
+    username = "Claudia", 
     password = "12345",
     className = "CST1F", 
     src = "./Images/userProfileImages/profileImage18.jpg",
     gameScores = {
-        ticTacToe: 100, 
-        hangman: 900, 
-        sudoku: 0, 
-        connect4: 0, 
-        rps: 0, 
-        wordSearch: 0
+        ticTacToe: 200, 
+        hangman: 5000, 
+        sudoku: 200, 
+        connect4: 300, 
+        rps: 600, 
+        wordSearch: 100
     },
     friends = [],
     achievement = [],
-    titles = [],
-    setTitle = "",
+    titles = ['Rope Cutter'],
+    setTitle = "Rope Cutter",
     servers = []
     )
 
 let user19 = new User(
-    username = "User19", 
+    username = "Kirito", 
     password = "12345",
     className = "CST1F", 
     src = "./Images/userProfileImages/profileImage19.jpg",
     gameScores = {
         ticTacToe: 100, 
         hangman: 100, 
-        sudoku: 0, 
-        connect4: 0, 
-        rps: 0, 
-        wordSearch: 0
+        sudoku: 400, 
+        connect4: 400, 
+        rps: 2400, 
+        wordSearch: 400
     },
     friends = [],
     achievement = [],
-    titles = [],
-    setTitle = "",
+    titles = ['Stone Face'],
+    setTitle = "Stone Face",
     servers = []
     )
 
 let user20 = new User(
-    username = "User20", 
+    username = "Mark1", 
     password = "12345",
     className = "CST1F", 
     src = "./Images/userProfileImages/profileImage20.jpg",
     gameScores = {
-        ticTacToe: 100, 
-        hangman: 900, 
-        sudoku: 0, 
-        connect4: 0, 
-        rps: 0, 
-        wordSearch: 0
+        ticTacToe: 50, 
+        hangman: 50, 
+        sudoku: 50, 
+        connect4: 50, 
+        rps: 50, 
+        wordSearch: 50
     },
     friends = [],
     achievement = [],
