@@ -148,7 +148,7 @@ class User {
 }
 
 let user1 = new User(
-    username = "Legend", 
+    username = "Ralph", 
     password = "12345",
     className = "CST1E", 
     src = "./Images/userProfileImages/profileImage1.jpg",
@@ -162,8 +162,8 @@ let user1 = new User(
     },
     friends = [],
     achievement = [],
-    titles = ["Emperor / Empress of MegaSnippet", "King / Queen of MegaSnippet"],
-    setTitle = "Emperor / Empress of MegaSnippet",
+    titles = ["Champion of MegaSnippet", "Master of MegaSnippet"],
+    setTitle = "Master of MegaSnippet",
     servers = []
     )
 
@@ -228,7 +228,7 @@ let user4 = new User(
     )
 
 let user5 = new User(
-    username = "Ralph", 
+    username = "Legend", 
     password = "12345",
     className = "CST1E", 
     src = "./Images/userProfileImages/profileImage5.jpg",
