@@ -22,4 +22,13 @@ document.getElementById('messagePostButton').addEventListener('click', function(
     let userProfileImage = currentUser.profileImageSrc;
     let messageContent = document.getElementById("message").value;
     postToPage(userName, userProfileImage, messageContent)
+
+    // Pseudo Fake Response - Remove after presentation
+    setTimeout(function(){
+        let userPrajvirdeep = user3
+        let nameP = userPrajvirdeep.username
+        let imageP = userPrajvirdeep.profileImageSrc
+        let messageP = "All good man"
+        postToPage(nameP, imageP, messageP)
+    }, 2500);
 });
