@@ -59,10 +59,11 @@ for (let i = 0; i < textChannels.length; i++){
     let channel = textChannels[i];
     channel.addEventListener('click', function(event){
         clearPage()
-        populateChat(chat_log_BCIT[channel.textContent]);
+        populateChat(chatLog[channel.textContent]);
         document.getElementById('currentTextChannel').setAttribute('id', "");
         channel.parentNode.setAttribute('id', "currentTextChannel");
     });
 }
 
-populateChat(chat_log_BCIT[Object.keys(chat_log_BCIT)[0]])
+let startLog = document.getElementById("textChannels").querySelector('p').textContent
+populateChat(chatLog[startLog])
