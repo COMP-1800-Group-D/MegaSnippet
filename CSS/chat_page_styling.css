@@ -201,6 +201,13 @@ main #userOnlineColumn .statusAway {
     background-color: crimson;
 }
 
+main #userOnlineColumn .statusAway  div{
+    margin: 12px auto;
+    height: 6px;
+    width: 16px;
+    background-color: black;
+}
+
 main #userOnlineColumn .statusOnline {
     margin-right: 5px;
     margin-top: 18px;
