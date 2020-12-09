@@ -17,6 +17,13 @@ function postToPage(name, image, message, date){
     }
 } 
 
+function clearPage(){
+    let textChat = document.getElementById('textChat').querySelectorAll('div');
+    for (let i = textChat.length - 1; i > 0; i--){
+        textChat[i].remove();
+    }
+}
+
 document.getElementById('messagePostButton').addEventListener('click', function(event){
     let userName = currentUser.username;
     let userProfileImage = currentUser.profileImageSrc;
@@ -34,3 +41,28 @@ document.getElementById('messagePostButton').addEventListener('click', function(
         postToPage(nameP, imageP, messageP, date)
     }, 2500);
 });
+
+function populateChat(listChats){
+    for (let i = 0; i < listChats.length; i++){
+        let chatMessage = listChats[i];
+        let user = chatMessage[0];
+        let name = user.username;
+        let image = user.profileImageSrc;
+        let message = chatMessage[1];
+        let date = chatMessage[2];
+        postToPage(name, image, message, date);
+    }
+}
+
+let textChannels = document.getElementById("textChannels").querySelectorAll('p')
+for (let i = 0; i < textChannels.length; i++){
+    let channel = textChannels[i];
+    channel.addEventListener('click', function(event){
+        clearPage()
+        populateChat(chat_log_BCIT[channel.textContent]);
+        document.getElementById('currentTextChannel').setAttribute('id', "");
+        channel.parentNode.setAttribute('id', "currentTextChannel");
+    });
+}
+
+populateChat(chat_log_BCIT[Object.keys(chat_log_BCIT)[0]])
