@@ -191,7 +191,7 @@ let user3 = new User(
     username = "Prajvirdeep", 
     password = "12345",
     className = "CST1E", 
-    src = "./Images/userProfileImages/profileImage3.jpg",
+    src = "./Images/userProfileImages/profileImage8.jpg",
     gameScores = {
         ticTacToe: 100, 
         hangman: 900, 
@@ -291,7 +291,7 @@ let user8 = new User(
     username = "Harry", 
     password = "12345",
     className = "CST1E", 
-    src = "./Images/userProfileImages/profileImage8.jpg",
+    src = "./Images/userProfileImages/profileImage3.jpg",
     gameScores = {
         ticTacToe: 500, 
         hangman: 600, 
