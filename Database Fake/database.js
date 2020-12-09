@@ -584,6 +584,42 @@ let chatLog = {
         [user3, "Good, thanks", new Date(2020, 11, 21)],
         [user1, "Do you want to be partners for the coding lab", new Date(2020, 11, 29)],
         [user3, "Sure, that would be awesome", new Date(2020, 11, 29)],
+    ],
+    'Mochizuki': [
+        [user1, "Hey, how's it going", new Date(2020, 11, 21)],
+        [user3, "Good, thanks", new Date(2020, 11, 21)],
+        [user1, "Do you want to be partners for the coding lab", new Date(2020, 11, 29)],
+        [user3, "Sure, that would be awesome", new Date(2020, 11, 29)],
+    ],
+    'Ling Fei': [
+        [user1, "Hey, how's it going", new Date(2020, 11, 21)],
+        [user3, "Good, thanks", new Date(2020, 11, 21)],
+        [user1, "Do you want to be partners for the coding lab", new Date(2020, 11, 29)],
+        [user3, "Sure, that would be awesome", new Date(2020, 11, 29)],
+    ],
+    'DeVante': [
+        [user1, "Hey, how's it going", new Date(2020, 11, 21)],
+        [user3, "Good, thanks", new Date(2020, 11, 21)],
+        [user1, "Do you want to be partners for the coding lab", new Date(2020, 11, 29)],
+        [user3, "Sure, that would be awesome", new Date(2020, 11, 29)],
+    ],
+    'Mary-Jane': [
+        [user1, "Hey, how's it going", new Date(2020, 11, 21)],
+        [user3, "Good, thanks", new Date(2020, 11, 21)],
+        [user1, "Do you want to be partners for the coding lab", new Date(2020, 11, 29)],
+        [user3, "Sure, that would be awesome", new Date(2020, 11, 29)],
+    ],
+    'Group D': [
+        [user1, "Hey, how's it going", new Date(2020, 11, 21)],
+        [user3, "Good, thanks", new Date(2020, 11, 21)],
+        [user1, "Do you want to be partners for the coding lab", new Date(2020, 11, 29)],
+        [user3, "Sure, that would be awesome", new Date(2020, 11, 29)],
+    ],
+    'MegaSnippet': [
+        [user1, "Hey, how's it going", new Date(2020, 11, 21)],
+        [user3, "Good, thanks", new Date(2020, 11, 21)],
+        [user1, "Do you want to be partners for the coding lab", new Date(2020, 11, 29)],
+        [user3, "Sure, that would be awesome", new Date(2020, 11, 29)],
     ]
 }
 
