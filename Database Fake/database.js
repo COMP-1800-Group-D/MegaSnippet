@@ -580,12 +580,10 @@ let chatLog = {
         [user1, "Big help, thanks", new Date(2020, 11, 02)]
     ],
     'Prajvirdeep': [
-        [user4, "Pav Sorry I was late to math class, what did I miss", new Date(2020, 10, 23)],
-        [user9, "We went over logs and exponents", new Date(2020, 10, 23)],
-        [user4, "Cool thanks", new Date(2020, 10, 23)],
-        [user7, "Here's a summary of what's due: Math MiniQuiz on Thursday, coding lab on Tuesday, and english assignment Saturday", new Date(2020, 11, 01)],
-        [user5, "That's awsome", new Date(2020, 11, 01)],
-        [user1, "Big help, thanks", new Date(2020, 11, 02)]
+        [user1, "Hey, how's it going", new Date(2020, 11, 21)],
+        [user3, "Good, thanks", new Date(2020, 11, 21)],
+        [user1, "Do you want to be partners for the coding lab", new Date(2020, 11, 29)],
+        [user3, "Sure, that would be awesome", new Date(2020, 11, 29)],
     ]
 }
 

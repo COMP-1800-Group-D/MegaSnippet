@@ -170,7 +170,7 @@ main #userOnlineColumn {
     overflow-y: scroll;
 }
 
-#userOnlineColumn .sectionDiv{
+main #userOnlineColumn .sectionDiv{
     height: 100px;
     border: 2px solid black;
     margin: 10px;
@@ -178,11 +178,11 @@ main #userOnlineColumn {
     background-color: lavender;
 }
 
-#userOnlineColumn p{
+main #userOnlineColumn p{
     display: inline-block;
 }
 
-#userOnlineColumn img {
+main #userOnlineColumn img {
     float: left;
     height: 70px;
     width: 70;
@@ -190,7 +190,7 @@ main #userOnlineColumn {
     margin: 15px;
 }
 
-#userOnlineColumn .statusAway {
+main #userOnlineColumn .statusAway {
     margin: 25px;
     float: right;
     display: inline;
@@ -200,7 +200,7 @@ main #userOnlineColumn {
     background-color: crimson;
 }
 
-#userOnlineColumn .statusOnline {
+main #userOnlineColumn .statusOnline {
     margin: 25px;
     float: right;
     display: inline;
