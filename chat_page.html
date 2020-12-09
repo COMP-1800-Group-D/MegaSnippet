@@ -272,28 +272,8 @@
         </div>
     </main>
 
-    <script>
-        function postToPage(){
-            let userProfileImage = "./Images/profile_image_admin.PNG"
-            let userName = "Admin"
-            let messageContent = document.getElementById("message").value;
-            if (messageContent){
-                let messageLineElement = document.createElement("div");
-                messageLineElement.setAttribute('class', 'messageLine');
-                let messageLineProfileImageElement = document.createElement("img");
-                messageLineProfileImageElement.setAttribute('src', userProfileImage);
-                messageLineProfileImageElement.setAttribute('alt', userName + ' Profile Image');
-                let messageLineNameElement = document.createElement("h4");
-                messageLineNameElement.innerHTML = userName;
-                let messageLineMessageElement = document.createElement("p");
-                messageLineMessageElement.innerHTML = messageContent;
-                messageLineElement.appendChild(messageLineProfileImageElement);
-                messageLineElement.appendChild(messageLineNameElement);
-                messageLineElement.appendChild(messageLineMessageElement);
-                document.getElementById("textChat").appendChild(messageLineElement);
-                document.getElementById("message").value = "";
-            }
-        } 
-    </script>
+    <script src="./Database Fake/database.js"></script>
+    <script src = "./JavaScript/chat_page_functionality.js"></script>
+    <script src = "./JavaScript/chat_BCIT_log.js"></script>
 </body>
 </html>
