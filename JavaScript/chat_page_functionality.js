@@ -1,4 +1,4 @@
-function postToPage(name, image, message){
+function postToPage(name, image, message, date){
     if (message){
         let messageLineElement = document.createElement("div");
         messageLineElement.setAttribute('class', 'messageLine');
@@ -6,7 +6,7 @@ function postToPage(name, image, message){
         messageLineProfileImageElement.setAttribute('src', image);
         messageLineProfileImageElement.setAttribute('alt', name + ' Profile Image');
         let messageLineNameElement = document.createElement("h4");
-        messageLineNameElement.innerHTML = name;
+        messageLineNameElement.innerHTML = name + " - " + (date.getMonth() + 1) + "/" + date.getDate() + "/" + date.getFullYear();
         let messageLineMessageElement = document.createElement("p");
         messageLineMessageElement.innerHTML = message;
         messageLineElement.appendChild(messageLineProfileImageElement);
@@ -21,7 +21,8 @@ document.getElementById('messagePostButton').addEventListener('click', function(
     let userName = currentUser.username;
     let userProfileImage = currentUser.profileImageSrc;
     let messageContent = document.getElementById("message").value;
-    postToPage(userName, userProfileImage, messageContent)
+    let date = new Date()
+    postToPage(userName, userProfileImage, messageContent, date)
 
     // Pseudo Fake Response - Remove after presentation
     setTimeout(function(){
@@ -29,6 +30,7 @@ document.getElementById('messagePostButton').addEventListener('click', function(
         let nameP = userPrajvirdeep.username
         let imageP = userPrajvirdeep.profileImageSrc
         let messageP = "All good man"
-        postToPage(nameP, imageP, messageP)
+        let date = new Date()
+        postToPage(nameP, imageP, messageP, date)
     }, 2500);
 });
