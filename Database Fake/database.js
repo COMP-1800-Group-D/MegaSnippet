@@ -564,12 +564,12 @@ let chatLog = {
         [user1, "Big help, thanks", new Date(2020, 11, 02)]
     ],
     "# Games": [
-        [user4, "Sorry I was late to math class, what did I miss", new Date(2020, 10, 23)],
-        [user9, "We went over logs and exponents", new Date(2020, 10, 23)],
-        [user4, "Cool thanks", new Date(2020, 10, 23)],
-        [user7, "Here's a summary of what's due: Math MiniQuiz on Thursday, coding lab on Tuesday, and english assignment Saturday", new Date(2020, 11, 01)],
-        [user5, "That's awsome", new Date(2020, 11, 01)],
-        [user1, "Big help, thanks", new Date(2020, 11, 02)]
+        [user7, "Does anyone want to compare sudoku times", new Date(2020, 10, 23)],
+        [user2, "Sure, I got 3:41 on easy", new Date(2020, 10, 23)],
+        [user7, "I got 5:01 on hard", new Date(2020, 10, 23)],
+        [user9, "4:48 on hard", new Date(2020, 11, 01)],
+        [user10, "That's awsome", new Date(2020, 11, 01)],
+        [user5, "How did you solve it so fast", new Date(2020, 11, 01)]
     ],
     "# Homework": [
         [user4, "Sorry I was late to math class, what did I miss", new Date(2020, 10, 23)],
@@ -583,13 +583,12 @@ let chatLog = {
         [user1, "Hey, how's it going", new Date(2020, 11, 21)],
         [user3, "Good, thanks", new Date(2020, 11, 21)],
         [user1, "Do you want to be partners for the coding lab", new Date(2020, 11, 29)],
-        [user3, "Sure, that would be awesome", new Date(2020, 11, 29)],
+        [user3, "Sure, that would be awesome", new Date(2020, 11, 29)]
     ],
     '# Mochizuki': [
-        [user1, "Hey, how's it going", new Date(2020, 11, 21)],
-        [user3, "Good, thanks", new Date(2020, 11, 21)],
-        [user1, "Do you want to be partners for the coding lab", new Date(2020, 11, 29)],
-        [user3, "Sure, that would be awesome", new Date(2020, 11, 29)],
+        [user4, "Per the professor's instructions I'll send you a zoom link", new Date(2020, 10, 17)],
+        [user4, "Zoom Meeting link: zoom.us/Mochizuki/", new Date(2020, 10, 17)],
+        [user1, "Sure, I'll join", new Date(2020, 10, 17)],
     ],
     '# Ling Fei': [
         [user1, "Hey, how's it going", new Date(2020, 11, 21)],
