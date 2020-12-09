@@ -171,10 +171,10 @@ main #userOnlineColumn {
 }
 
 main #userOnlineColumn .sectionDiv{
-    height: 100px;
+    height: 5vw;
     border: 2px solid black;
     margin: 10px;
-    font-size: 25px;
+    font-size: 20px;
     background-color: lavender;
 }
 
@@ -184,28 +184,30 @@ main #userOnlineColumn p{
 
 main #userOnlineColumn img {
     float: left;
-    height: 70px;
-    width: 70;
+    height: 3vw;
+    width: 3vw;
     border-radius: 50%;
-    margin: 15px;
+    margin: 12px 5px;
 }
 
 main #userOnlineColumn .statusAway {
-    margin: 25px;
+    margin-right: 5px;
+    margin-top: 18px;
     float: right;
     display: inline;
     border-radius: 50%;
-    height: 50px;
-    width: 50px;
+    height: 2vw;
+    width: 2vw;
     background-color: crimson;
 }
 
 main #userOnlineColumn .statusOnline {
-    margin: 25px;
+    margin-right: 5px;
+    margin-top: 18px;
     float: right;
     display: inline;
     border-radius: 50%;
-    height: 50px;
-    width: 50px;
+    height: 2vw;
+    width: 2vw;
     background-color:limegreen;
 }
