@@ -552,3 +552,32 @@ user11, user12, user13, user14, user15, user16, user17, user18, user19, user20];
 let targetClassName = "CST1E";
 
 let currentUser = user1;
+
+let chat_log_BCIT = {
+    "# General": [
+        [user1, "Hey everyone, here is a genral chat to discuss anything regarding BCIT.", new Date(2020, 10, 23)],
+        [user4, "Sorry I was late to math class, what did I miss", new Date(2020, 10, 23)],
+        [user9, "We went over logs and exponents", new Date(2020, 10, 23)],
+        [user4, "Cool thanks", new Date(2020, 10, 23)],
+        [user7, "Here's a summary of what's due: Math MiniQuiz on Thursday, coding lab on Tuesday, and english assignment Saturday", new Date(2020, 11, 01)],
+        [user5, "That's awsome", new Date(2020, 11, 01)],
+        [user1, "Big help, thanks", new Date(2020, 11, 02)]
+    ],
+    "# Games": [
+        [user4, "Sorry I was late to math class, what did I miss", new Date(2020, 10, 23)],
+        [user9, "We went over logs and exponents", new Date(2020, 10, 23)],
+        [user4, "Cool thanks", new Date(2020, 10, 23)],
+        [user7, "Here's a summary of what's due: Math MiniQuiz on Thursday, coding lab on Tuesday, and english assignment Saturday", new Date(2020, 11, 01)],
+        [user5, "That's awsome", new Date(2020, 11, 01)],
+        [user1, "Big help, thanks", new Date(2020, 11, 02)]
+    ],
+    "# Homework": [
+        [user4, "Sorry I was late to math class, what did I miss", new Date(2020, 10, 23)],
+        [user9, "We went over logs and exponents", new Date(2020, 10, 23)],
+        [user4, "Cool thanks", new Date(2020, 10, 23)],
+        [user7, "Here's a summary of what's due: Math MiniQuiz on Thursday, coding lab on Tuesday, and english assignment Saturday", new Date(2020, 11, 01)],
+        [user5, "That's awsome", new Date(2020, 11, 01)],
+        [user1, "Big help, thanks", new Date(2020, 11, 02)]
+    ]
+}
+
