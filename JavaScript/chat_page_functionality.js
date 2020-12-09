@@ -62,6 +62,7 @@ for (let i = 0; i < textChannels.length; i++){
         populateChat(chatLog[channel.textContent]);
         document.getElementById('currentTextChannel').setAttribute('id', "");
         channel.parentNode.setAttribute('id', "currentTextChannel");
+        document.getElementById('conversationColumn').querySelector('h3').textContent = channel.textContent.slice(2) + " Text Channel"
     });
 }
 

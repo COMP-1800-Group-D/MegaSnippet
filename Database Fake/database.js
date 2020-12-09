@@ -579,43 +579,43 @@ let chatLog = {
         [user5, "That's awsome", new Date(2020, 11, 01)],
         [user1, "Big help, thanks", new Date(2020, 11, 02)]
     ],
-    'Prajvirdeep': [
+    '# Prajvirdeep': [
         [user1, "Hey, how's it going", new Date(2020, 11, 21)],
         [user3, "Good, thanks", new Date(2020, 11, 21)],
         [user1, "Do you want to be partners for the coding lab", new Date(2020, 11, 29)],
         [user3, "Sure, that would be awesome", new Date(2020, 11, 29)],
     ],
-    'Mochizuki': [
+    '# Mochizuki': [
         [user1, "Hey, how's it going", new Date(2020, 11, 21)],
         [user3, "Good, thanks", new Date(2020, 11, 21)],
         [user1, "Do you want to be partners for the coding lab", new Date(2020, 11, 29)],
         [user3, "Sure, that would be awesome", new Date(2020, 11, 29)],
     ],
-    'Ling Fei': [
+    '# Ling Fei': [
         [user1, "Hey, how's it going", new Date(2020, 11, 21)],
         [user3, "Good, thanks", new Date(2020, 11, 21)],
         [user1, "Do you want to be partners for the coding lab", new Date(2020, 11, 29)],
         [user3, "Sure, that would be awesome", new Date(2020, 11, 29)],
     ],
-    'DeVante': [
+    '# DeVante': [
         [user1, "Hey, how's it going", new Date(2020, 11, 21)],
         [user3, "Good, thanks", new Date(2020, 11, 21)],
         [user1, "Do you want to be partners for the coding lab", new Date(2020, 11, 29)],
         [user3, "Sure, that would be awesome", new Date(2020, 11, 29)],
     ],
-    'Mary-Jane': [
+    '# Mary-Jane': [
         [user1, "Hey, how's it going", new Date(2020, 11, 21)],
         [user3, "Good, thanks", new Date(2020, 11, 21)],
         [user1, "Do you want to be partners for the coding lab", new Date(2020, 11, 29)],
         [user3, "Sure, that would be awesome", new Date(2020, 11, 29)],
     ],
-    'Group D': [
+    '# Group D': [
         [user1, "Hey, how's it going", new Date(2020, 11, 21)],
         [user3, "Good, thanks", new Date(2020, 11, 21)],
         [user1, "Do you want to be partners for the coding lab", new Date(2020, 11, 29)],
         [user3, "Sure, that would be awesome", new Date(2020, 11, 29)],
     ],
-    'MegaSnippet': [
+    '# MegaSnippet': [
         [user1, "Hey, how's it going", new Date(2020, 11, 21)],
         [user3, "Good, thanks", new Date(2020, 11, 21)],
         [user1, "Do you want to be partners for the coding lab", new Date(2020, 11, 29)],
